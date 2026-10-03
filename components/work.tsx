@@ -42,7 +42,7 @@ function Cover({ index, name }: { index: number; name: string }) {
             </div>
           </div>
           <div className="p-4 sm:p-6">
-            <div className={`font-serif italic text-2xl sm:text-4xl leading-none mb-3 ${light ? "text-zinc-900" : "text-white"}`}>
+            <div className={`font-display font-semibold tracking-tight text-2xl sm:text-4xl leading-none mb-3 ${light ? "text-zinc-900" : "text-white"}`}>
               {name}
             </div>
             <div className={`h-1.5 w-2/3 rounded-full mb-1.5 ${light ? "bg-zinc-300" : "bg-white/15"}`} />
@@ -65,7 +65,7 @@ export function Work() {
   return (
     <section id="prace" className="py-24 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading eyebrow={t.work.eyebrow} title={t.work.title} sub={t.work.sub} align="left" />
+        <SectionHeading title={t.work.title} sub={t.work.sub} align="left" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {t.work.items.map((item, index) => (

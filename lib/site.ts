@@ -4,9 +4,4 @@ export const site = {
   email: "hello@projectone.cz",
   phone: "+420 777 000 000",
   location: "Praha, CZ",
-  socials: [
-    { label: "Instagram", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Dribbble", href: "#" },
-  ],
 }

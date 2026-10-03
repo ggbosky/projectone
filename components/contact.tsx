@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { ArrowRight, Check, Clock, Mail, Phone } from "lucide-react"
+import { ArrowRight, Check, Mail, Phone } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { site } from "@/lib/site"
 import { buttonClasses } from "@/components/button-link"
@@ -76,12 +76,8 @@ export function Contact() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="lg:pt-6"
         >
-          <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-ember" />
-            {c.eyebrow}
-          </div>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tighter text-white mb-6 text-balance">
-            {c.title} <span className="font-serif italic font-normal tracking-normal text-ember">{c.titleAccent}</span>
+            {c.title} <span className="text-ember">{c.titleAccent}</span>
           </h2>
           <p className="text-lg text-zinc-400 leading-relaxed mb-10 max-w-md">{c.sub}</p>
 
@@ -102,12 +98,6 @@ export function Contact() {
               </span>
               <span className="font-display text-lg">{site.phone}</span>
             </a>
-            <div className="flex items-center gap-3 text-zinc-400 pt-2">
-              <span className="w-10 h-10 flex items-center justify-center">
-                <Clock className="w-4 h-4" />
-              </span>
-              <span className="text-sm">{c.response}</span>
-            </div>
           </div>
         </motion.div>
 

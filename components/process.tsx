@@ -14,7 +14,7 @@ export function Process() {
   return (
     <section id="proces" className="py-24 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading eyebrow={t.process.eyebrow} title={t.process.title} sub={t.process.sub} />
+        <SectionHeading title={t.process.title} sub={t.process.sub} />
 
         <div ref={ref} className="relative">
           {/* Progress line (desktop: horizontal, mobile: vertical) */}
@@ -39,9 +39,6 @@ export function Process() {
                   0{index + 1}
                 </div>
                 <div className="lg:pr-4">
-                  <div className="inline-block text-[11px] uppercase tracking-[0.15em] text-ember font-medium mb-2">
-                    {step.time}
-                  </div>
                   <h3 className="font-display text-xl font-semibold text-white mb-2">{step.title}</h3>
                   <p className="text-sm text-zinc-400 leading-relaxed">{step.text}</p>
                 </div>

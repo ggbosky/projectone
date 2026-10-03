@@ -9,12 +9,12 @@
   --ring: oklch(0.7 0.19 42);
   --ember: oklch(0.7 0.2 40);
   --ember-soft: oklch(0.7 0.2 40 / 0.15);
+  color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-instrument-sans), "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-instrument-serif), "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: var(--font-funnel-sans), "Funnel Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-funnel-display), "Funnel Display", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
@@ -89,31 +89,27 @@ html.lenis body {
   animation: border-beam 8s linear infinite;
 }
 
-/* Shimmer animation for CTA */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.shimmer-btn {
+/* Primary button: accent fill rising from the bottom on hover */
+.btn-fill {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
 
-.shimmer-btn::before {
+.btn-fill::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
-  background-size: 200% 100%;
-  animation: shimmer 3s ease-in-out infinite;
-  opacity: 0.35;
+  background: var(--ember);
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-fill:hover::after,
+.btn-fill:focus-visible::after {
+  transform: translateY(0);
 }
 
 /* Pulse glow for status indicators */
@@ -174,7 +170,6 @@ html.lenis body {
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .border-beam,
-  .shimmer-btn::before,
   .pulse-glow,
   .caret {
     animation: none;

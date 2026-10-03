@@ -130,7 +130,7 @@ export function Hero() {
           <span className="block overflow-hidden pb-3">
             <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={1}>
               <span className="text-zinc-500">{t.hero.line2} </span>
-              <span className="font-serif italic font-normal tracking-normal text-ember">{t.hero.line2Accent}</span>
+              <span className="text-ember">{t.hero.line2Accent}</span>
             </motion.span>
           </span>
         </h1>
@@ -166,12 +166,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.75 }}
-          className="grid grid-cols-3 max-w-xl mx-auto divide-x divide-zinc-800"
+          className="grid grid-cols-3 max-w-2xl mx-auto divide-x divide-zinc-800"
         >
           {t.hero.stats.map((s) => (
             <div key={s.label} className="px-2 sm:px-6">
               <dt className="sr-only">{s.label}</dt>
-              <dd className="font-display text-2xl sm:text-3xl font-semibold text-white tracking-tight">{s.value}</dd>
+              <dd className="font-display text-base sm:text-2xl font-semibold text-white tracking-tight">{s.value}</dd>
               <dd className="text-xs sm:text-sm text-zinc-500 mt-1">{s.label}</dd>
             </div>
           ))}

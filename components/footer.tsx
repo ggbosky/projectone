@@ -11,16 +11,12 @@ export function Footer() {
   return (
     <footer className="relative border-t border-zinc-800 bg-zinc-950 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 pt-16 pb-8">
-        <div className="grid grid-cols-2 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-10">
           <div className="col-span-2 md:col-span-1">
             <a href="#top" className="inline-block mb-4" aria-label="Project One">
               <Logo />
             </a>
-            <p className="text-sm text-zinc-500 mb-5 max-w-xs">{t.footer.tagline}</p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 text-emerald-500 pulse-glow" />
-              <span className="text-xs text-zinc-400">{t.footer.available}</span>
-            </div>
+            <p className="text-sm text-zinc-500 max-w-xs">{t.footer.tagline}</p>
           </div>
 
           <div>
@@ -53,18 +49,6 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">{t.footer.socialTitle}</h4>
-            <ul className="space-y-3">
-              {site.socials.map((s) => (
-                <li key={s.label}>
-                  <a href={s.href} className="text-sm text-zinc-500 hover:text-white transition-colors">
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* Oversized wordmark */}
@@ -75,13 +59,14 @@ export function Footer() {
           Project One
         </div>
 
-        <div className="mt-6 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-zinc-500">
-            &copy; {new Date().getFullYear()} {site.name}. {t.footer.rights}
-          </p>
-          <a href="#top" className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors">
-            {t.footer.backTop}
-            <ArrowUp className="w-4 h-4" />
+        <div className="mt-6 pt-8 border-t border-zinc-800 flex justify-center">
+          <a
+            href="#top"
+            aria-label={t.footer.backTop}
+            title={t.footer.backTop}
+            className="group w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-zinc-950 hover:bg-ember hover:border-ember transition-all duration-300 hover:-translate-y-1"
+          >
+            <ArrowUp className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5" />
           </a>
         </div>
       </div>

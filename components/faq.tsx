@@ -13,8 +13,8 @@ export function Faq() {
 
   return (
     <section id="faq" className="py-24 px-4 scroll-mt-24">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-6 lg:gap-16">
-        <SectionHeading eyebrow={t.faq.eyebrow} title={t.faq.title} align="left" className="lg:sticky lg:top-32 self-start" />
+      <div className="max-w-3xl mx-auto">
+        <SectionHeading title={t.faq.title} />
 
         <div className="divide-y divide-zinc-800 border-y border-zinc-800">
           {t.faq.items.map((item, index) => {

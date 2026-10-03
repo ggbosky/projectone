@@ -1,26 +1,18 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Manrope, Instrument_Sans, Instrument_Serif } from "next/font/google"
+import { Funnel_Display, Funnel_Sans } from "next/font/google"
 import { dictionaries } from "@/lib/dictionary"
 import "./globals.css"
 
-const manrope = Manrope({
+const funnelSans = Funnel_Sans({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-manrope",
+  variable: "--font-funnel-sans",
   display: "swap",
 })
 
-const instrumentSans = Instrument_Sans({
+const funnelDisplay = Funnel_Display({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-instrument-sans",
-  display: "swap",
-})
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin", "latin-ext"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+  variable: "--font-funnel-display",
   display: "swap",
 })
 
@@ -47,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="cs" className="dark">
       <body
-        className={`${manrope.variable} ${instrumentSans.variable} ${instrumentSerif.variable} font-sans antialiased`}
+        className={`${funnelSans.variable} ${funnelDisplay.variable} font-sans antialiased`}
       >
         <div className="noise-overlay" aria-hidden="true" />
         {children}

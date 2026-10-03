@@ -5,7 +5,6 @@ import { I18nProvider } from "@/lib/i18n"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
-import { TechMarquee } from "@/components/tech-marquee"
 import { Services } from "@/components/services"
 import { Work } from "@/components/work"
 import { Process } from "@/components/process"
@@ -22,7 +21,6 @@ export default function Home() {
           <Navbar />
           <main className="min-h-screen bg-zinc-950">
             <Hero />
-            <TechMarquee />
             <Services />
             <Work />
             <Process />

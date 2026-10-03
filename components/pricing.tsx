@@ -22,15 +22,14 @@ function BorderBeam() {
 }
 
 export function Pricing() {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
   const [tab, setTab] = useState<Tab>("web")
   const plans = t.pricing[tab]
-  const formatter = new Intl.NumberFormat(locale === "cs" ? "cs-CZ" : "en-US")
 
   return (
     <section id="cenik" className="py-24 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading eyebrow={t.pricing.eyebrow} title={t.pricing.title} sub={t.pricing.sub} className="mb-10" />
+        <SectionHeading title={t.pricing.title} sub={t.pricing.sub} className="mb-10" />
 
         <div className="flex justify-center mb-12">
           <div className="inline-flex items-center p-1 rounded-full bg-zinc-900 border border-zinc-800">
@@ -86,26 +85,9 @@ export function Pricing() {
                     </div>
                   )}
 
-                  <div className="mb-6">
-                    <h3 className="font-display text-xl font-semibold text-white mb-2">{plan.name}</h3>
-                    <p className="text-zinc-400 text-sm">{plan.description}</p>
-                  </div>
-
-                  <div className="mb-7">
-                    {plan.price === null ? (
-                      <span className="font-display text-4xl font-semibold text-white tracking-tight">{t.pricing.custom}</span>
-                    ) : (
-                      <div className="flex items-baseline gap-1.5 flex-wrap">
-                        <span className="text-sm text-zinc-500">{t.pricing.from}</span>
-                        <span className="font-display text-4xl font-semibold text-white tracking-tight tabular-nums">
-                          {formatter.format(plan.price)}
-                        </span>
-                        <span className="text-zinc-400 text-sm">
-                          {t.pricing.currency}
-                          {tab === "care" && ` ${t.pricing.perMonth}`}
-                        </span>
-                      </div>
-                    )}
+                  <div className="mb-6 pb-6 border-b border-zinc-800">
+                    <h3 className="font-display text-3xl font-semibold tracking-tight text-white mb-2">{plan.name}</h3>
+                    <p className="text-zinc-400 text-sm leading-relaxed">{plan.description}</p>
                   </div>
 
                   <ul className="space-y-3 mb-8">

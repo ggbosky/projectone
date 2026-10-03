@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef, useState, type ReactNode } from "react"
-import { BarChart3, Code2, Gauge, LifeBuoy, PenTool, ShoppingBag, Sparkles } from "lucide-react"
+import { BarChart3, CalendarCheck, Gauge, LifeBuoy, PenTool, ShoppingBag, Sparkles } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { SectionHeading } from "@/components/section-heading"
 import { cn } from "@/lib/utils"
@@ -24,7 +24,7 @@ function Card({
   className,
   children,
 }: {
-  icon: typeof Code2
+  icon: typeof Gauge
   title: string
   text: string
   className?: string
@@ -112,37 +112,44 @@ function DesignCanvas() {
   )
 }
 
-const codeLines = [
-  { indent: 0, tokens: [["text-violet-400", "export"], ["text-zinc-300", " function "], ["text-ember", "Hero"], ["text-zinc-300", "() {"]] },
-  { indent: 1, tokens: [["text-violet-400", "return"], ["text-zinc-300", " <"], ["text-sky-400", "Section"], ["text-zinc-300", ">"]] },
-  { indent: 2, tokens: [["text-zinc-300", "<"], ["text-sky-400", "Title"], ["text-zinc-300", ">"], ["text-emerald-400", "Project One"], ["text-zinc-300", "</"], ["text-sky-400", "Title"], ["text-zinc-300", ">"]] },
-  { indent: 1, tokens: [["text-zinc-300", "</"], ["text-sky-400", "Section"], ["text-zinc-300", ">"]] },
-  { indent: 0, tokens: [["text-zinc-300", "}"]] },
-]
-
-function CodeBlock() {
+/* Mini booking widget — a slot gets picked and confirmed on a loop */
+function BookingDemo() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: "-80px" })
+  const slots = ["9:00", "10:30", "13:00", "14:30", "16:00", "17:30"]
+  const [active, setActive] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (!inView) return
+    let i = 0
+    const interval = setInterval(() => {
+      setActive([1, 3, 4][i % 3])
+      i++
+    }, 1600)
+    return () => clearInterval(interval)
+  }, [inView])
 
   return (
-    <div ref={ref} className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4 font-mono text-[11px] leading-5 overflow-hidden">
-      {codeLines.map((line, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, x: -8 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 0.2 + i * 0.25, duration: 0.4 }}
-          className="whitespace-pre"
-          style={{ paddingLeft: line.indent * 14 }}
-        >
-          {line.tokens.map(([cls, text], j) => (
-            <span key={j} className={cls}>
-              {text}
-            </span>
-          ))}
-          {i === codeLines.length - 1 && <span className="caret inline-block w-1.5 h-3 bg-ember ml-1 align-middle" />}
-        </motion.div>
-      ))}
+    <div ref={ref} className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4">
+      <div className="flex items-center justify-between mb-3 text-xs">
+        <span className="text-zinc-300 font-medium">Pá 14. 11.</span>
+        <span className="text-zinc-500">6 / 6</span>
+      </div>
+      <div className="grid grid-cols-3 gap-2">
+        {slots.map((slot, i) => (
+          <motion.div
+            key={slot}
+            animate={active === i ? { scale: [1, 0.94, 1] } : { scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className={cn(
+              "py-2 rounded-lg text-center text-xs font-medium border transition-colors duration-300",
+              active === i ? "bg-ember border-ember text-zinc-950" : "border-zinc-800 text-zinc-400",
+            )}
+          >
+            {slot}
+          </motion.div>
+        ))}
+      </div>
     </div>
   )
 }
@@ -296,7 +303,7 @@ export function Services() {
   return (
     <section id="sluzby" className="py-24 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading eyebrow={s.eyebrow} title={s.title} sub={s.sub} />
+        <SectionHeading title={s.title} sub={s.sub} />
 
         <motion.div
           variants={containerVariants}
@@ -311,8 +318,8 @@ export function Services() {
           <Card icon={Gauge} title={s.speed.title} text={s.speed.text}>
             <ScoreRing />
           </Card>
-          <Card icon={Code2} title={s.dev.title} text={s.dev.text}>
-            <CodeBlock />
+          <Card icon={CalendarCheck} title={s.dev.title} text={s.dev.text}>
+            <BookingDemo />
           </Card>
           <Card icon={ShoppingBag} title={s.shop.title} text={s.shop.text}>
             <CartStack />
