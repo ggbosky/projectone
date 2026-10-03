@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.13 0.004 285);
+  --foreground: oklch(0.985 0 0);
+  --border: oklch(0.27 0.006 285);
+  --ring: oklch(0.7 0.19 42);
+  --ember: oklch(0.7 0.2 40);
+  --ember-soft: oklch(0.7 0.2 40 / 0.15);
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument-sans), "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), "Instrument Serif", ui-serif, Georgia, serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-ember: var(--ember);
+  --color-ember-soft: var(--ember-soft);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: auto;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-zinc-950 text-foreground;
+  }
+  ::selection {
+    background: var(--ember);
+    color: #09090b;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Background grid used in hero */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%);
+}
+
+/* Border beam animation for highlighted pricing card */
+@keyframes border-beam {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.border-beam {
+  animation: border-beam 8s linear infinite;
+}
+
+/* Shimmer animation for CTA */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shimmer-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  opacity: 0.35;
+}
+
+/* Pulse glow for status indicators */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 4px currentColor;
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 10px currentColor;
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Draw line animation for charts */
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-line 2s ease-out forwards;
+}
+
+/* Blinking caret */
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: caret 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .border-beam,
+  .shimmer-btn::before,
+  .pulse-glow,
+  .caret {
+    animation: none;
+  }
+  .draw-line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
