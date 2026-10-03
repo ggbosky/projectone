@@ -100,25 +100,13 @@ export function Hero() {
   const scale = useTransform(scrollYProgress, [0, 0.45], [0.92, 1])
 
   return (
-    <section id="top" className="relative flex flex-col items-center px-4 pt-36 sm:pt-44 pb-16 overflow-hidden">
+    <section id="top" className="relative flex flex-col items-center px-4 pt-40 sm:pt-52 pb-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-ember/20 blur-[120px] pointer-events-none" />
       <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-violet-500/10 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
-        {/* Badge */}
-        <motion.a
-          href="#kontakt"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/80 border border-zinc-800 mb-8 hover:border-zinc-700 transition-colors"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500 text-emerald-500 pulse-glow" />
-          <span className="text-sm text-zinc-400">{t.hero.badge}</span>
-          <ArrowRight className="w-3.5 h-3.5 text-zinc-500" />
-        </motion.a>
 
         {/* Headline */}
         <h1 key={locale} className="font-display text-[2.75rem] leading-[1.02] sm:text-7xl lg:text-8xl font-semibold tracking-tighter text-white mb-7">

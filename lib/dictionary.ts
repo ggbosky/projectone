@@ -18,7 +18,6 @@ const cs = {
     menu: "Otevřít menu",
   },
   hero: {
-    badge: "Přijímáme nové projekty",
     line1: "Weby, které",
     line2: "prodávají",
     line2Accent: "za vás.",
@@ -231,7 +230,6 @@ const en: Dictionary = {
     menu: "Open menu",
   },
   hero: {
-    badge: "Now booking new projects",
     line1: "Websites that",
     line2: "sell",
     line2Accent: "for you.",
