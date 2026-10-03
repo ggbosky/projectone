@@ -45,7 +45,6 @@ export function Footer() {
                   {site.phone}
                 </a>
               </li>
-              <li className="text-zinc-500">{site.location}</li>
             </ul>
           </div>
 

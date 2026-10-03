@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useEffect, useRef, useState, type ReactNode } from "react"
-import { BarChart3, CalendarCheck, Gauge, LifeBuoy, PenTool, ShoppingBag, Sparkles } from "lucide-react"
+import { BarChart3, CalendarCheck, Gauge, LifeBuoy, PenTool, MonitorSmartphone, Sparkles } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { SectionHeading } from "@/components/section-heading"
 import { cn } from "@/lib/utils"
@@ -237,21 +237,46 @@ function AnimatedChart() {
   )
 }
 
-function CartStack() {
+/* The same layout reflowing across desktop, tablet and phone */
+function DevicesDemo() {
+  const Lines = ({ rows }: { rows: number }) => (
+    <>
+      <div className="h-1.5 w-3/4 rounded-full bg-zinc-200/80 mb-1" />
+      <div className="h-1.5 w-1/2 rounded-full bg-zinc-600 mb-2" />
+      <div className={cn("grid gap-1", rows === 3 ? "grid-cols-3" : rows === 2 ? "grid-cols-2" : "grid-cols-1")}>
+        {Array.from({ length: rows }, (_, i) => (
+          <div key={i} className="h-4 rounded-sm bg-zinc-800" />
+        ))}
+      </div>
+    </>
+  )
+
   return (
-    <div className="flex items-center gap-2">
-      {["#f97316", "#a78bfa", "#34d399"].map((c, i) => (
-        <motion.div
-          key={c}
-          animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.3, ease: "easeInOut" }}
-          className="flex-1 rounded-xl border border-zinc-800 bg-zinc-950/60 p-2"
-        >
-          <div className="aspect-square rounded-lg mb-2" style={{ background: `linear-gradient(135deg, ${c}, transparent)` }} />
-          <div className="h-1.5 w-3/4 rounded-full bg-zinc-700 mb-1" />
-          <div className="h-1.5 w-1/3 rounded-full bg-zinc-800" />
-        </motion.div>
-      ))}
+    <div className="flex items-end justify-center gap-3 h-[7.5rem]">
+      <motion.div
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="w-[52%] rounded-lg border border-zinc-700 bg-zinc-950/80 p-2"
+      >
+        <div className="h-1 w-6 rounded-full bg-ember mb-2" />
+        <Lines rows={3} />
+      </motion.div>
+      <motion.div
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+        className="w-[28%] rounded-lg border border-zinc-700 bg-zinc-950/80 p-2"
+      >
+        <div className="h-1 w-5 rounded-full bg-ember mb-2" />
+        <Lines rows={2} />
+      </motion.div>
+      <motion.div
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+        className="w-[16%] rounded-md border border-zinc-700 bg-zinc-950/80 p-1.5"
+      >
+        <div className="h-1 w-3 rounded-full bg-ember mb-1.5" />
+        <Lines rows={1} />
+      </motion.div>
     </div>
   )
 }
@@ -321,8 +346,8 @@ export function Services() {
           <Card icon={CalendarCheck} title={s.dev.title} text={s.dev.text}>
             <BookingDemo />
           </Card>
-          <Card icon={ShoppingBag} title={s.shop.title} text={s.shop.text}>
-            <CartStack />
+          <Card icon={MonitorSmartphone} title={s.responsive.title} text={s.responsive.text}>
+            <DevicesDemo />
           </Card>
           <Card icon={BarChart3} title={s.seo.title} text={s.seo.text}>
             <AnimatedChart />

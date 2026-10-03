@@ -74,19 +74,19 @@ export function Pricing() {
                   className={cn(
                     "relative flex flex-col p-7 rounded-3xl border transition-colors duration-300",
                     highlighted
-                      ? "bg-zinc-900 border-zinc-700 md:-my-3 md:py-10"
+                      ? "bg-gradient-to-b from-[oklch(0.7_0.2_40/0.22)] via-zinc-900 to-zinc-900 border-ember shadow-[0_0_90px_-25px_oklch(0.7_0.2_40/0.7)] md:-my-4 md:py-11"
                       : "bg-zinc-900/40 border-zinc-800 hover:border-zinc-700",
                   )}
                 >
                   {highlighted && <BorderBeam />}
                   {highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-ember text-zinc-950 text-xs font-semibold rounded-full whitespace-nowrap">
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-ember text-zinc-950 text-xs font-bold uppercase tracking-wider rounded-full whitespace-nowrap shadow-lg shadow-[oklch(0.7_0.2_40/0.4)]">
                       {t.pricing.popular}
                     </div>
                   )}
 
-                  <div className="mb-6 pb-6 border-b border-zinc-800">
-                    <h3 className="font-display text-3xl font-semibold tracking-tight text-white mb-2">{plan.name}</h3>
+                  <div className={cn("mb-6 pb-6 border-b", highlighted ? "border-ember/30" : "border-zinc-800")}>
+                    <h3 className={cn("font-display text-3xl font-semibold tracking-tight mb-2", highlighted ? "text-ember" : "text-white")}>{plan.name}</h3>
                     <p className="text-zinc-400 text-sm leading-relaxed">{plan.description}</p>
                   </div>
 
@@ -104,7 +104,7 @@ export function Pricing() {
 
                   <ButtonLink
                     href="#kontakt"
-                    variant={highlighted ? "primary" : "outline"}
+                    variant={highlighted ? "accent" : "outline"}
                     className={cn("mt-auto w-full h-11", !highlighted && "bg-zinc-800/60")}
                   >
                     {plan.cta}

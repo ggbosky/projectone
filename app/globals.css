@@ -101,7 +101,7 @@ html.lenis body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--ember);
+  background: var(--btn-fill, var(--ember));
   border-radius: inherit;
   transform: translateY(101%);
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);

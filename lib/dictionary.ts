@@ -14,7 +14,7 @@ const cs = {
       { label: "Ceník", href: "#cenik" },
       { label: "FAQ", href: "#faq" },
     ],
-    cta: "Začít projekt",
+    cta: "Začít spolupráci",
     menu: "Otevřít menu",
   },
   hero: {
@@ -24,9 +24,22 @@ const cs = {
     sub: "Jsme Project One — malý tým, který stojí za každým projektem osobně. Tvoříme moderní, rychlé a prémiové weby, které posunou vaši značku o level výš.",
     primary: "Nezávazná konzultace",
     secondary: "Naše práce",
+    mockup: {
+      caption: "Ukázka webu, jaký pro vás postavíme",
+      nav: ["Projekty", "Služby", "O nás"],
+      navCta: "Kontakt",
+      kicker: "Interiérový design",
+      headline: "Interiéry, ve kterých se dobře žije.",
+      text: "Navrhujeme byty, kanceláře a restaurace na míru.",
+      primary: "Nezávazná schůzka",
+      secondary: "Projekty",
+      cards: ["Byty", "Kanceláře", "Restaurace"],
+      toastTitle: "Nová poptávka z webu",
+      toastText: "Jana N. · rekonstrukce bytu",
+    },
     stats: [
       { value: "Zdarma", label: "úvodní konzultace" },
-      { value: "2–3 týdny", label: "do spuštění" },
+      { value: "2–3 týdny", label: "a váš web je online" },
       { value: "Mobile first", label: "perfektní na telefonu" },
     ],
   },
@@ -39,16 +52,16 @@ const cs = {
     },
     dev: {
       title: "Funkce na míru",
-      text: "Rezervace, formuláře, platby a napojení na nástroje, které už používáte.",
+      text: "Rezervace, poptávkové formuláře, jednoduchý e-shop nebo napojení na nástroje, které už používáte.",
     },
     speed: {
       title: "Bleskový výkon",
       text: "Ladíme web do poslední milisekundy. Rychlý web = lepší SEO i konverze.",
       label: "výkon",
     },
-    shop: {
-      title: "E-shopy",
-      text: "Přehledný obchod s pohodlnou správou produktů, objednávek a plateb.",
+    responsive: {
+      title: "Na mobilu i počítači",
+      text: "Web vypadá a funguje skvěle na telefonu, tabletu i velké obrazovce.",
     },
     seo: {
       title: "SEO & analytika",
@@ -125,9 +138,9 @@ const cs = {
       },
       {
         name: "Premium",
-        description: "E-shopy, rezervace a projekty na míru",
+        description: "Rozsáhlejší weby a projekty na míru",
         features: [
-          "E-shop nebo rezervační systém",
+          "Rezervace, e-shop nebo klientská sekce",
           "Online platby",
           "Napojení na vaše nástroje",
           "Rozsah podle vašich potřeb",
@@ -163,7 +176,7 @@ const cs = {
     items: [
       {
         q: "Jak dlouho trvá vytvoření webu?",
-        a: "Většinu webů spouštíme do 2–3 týdnů. Záleží hlavně na rozsahu a požadavcích — větší projekty jako e-shopy trvají déle. Odhad dostanete hned s nabídkou.",
+        a: "Většina webů je hotová a online na vaší doméně do 2–3 týdnů. Záleží hlavně na rozsahu a požadavcích — větší projekty jako e-shopy trvají déle. Odhad dostanete hned s nabídkou.",
       },
       {
         q: "Kolik web stojí?",
@@ -226,7 +239,7 @@ const en: Dictionary = {
       { label: "Pricing", href: "#cenik" },
       { label: "FAQ", href: "#faq" },
     ],
-    cta: "Start a project",
+    cta: "Work with us",
     menu: "Open menu",
   },
   hero: {
@@ -236,9 +249,22 @@ const en: Dictionary = {
     sub: "We are Project One — a small team that personally stands behind every project. We create modern, fast and premium websites that take your brand to the next level.",
     primary: "Free consultation",
     secondary: "Our work",
+    mockup: {
+      caption: "A sample of the kind of site we build for you",
+      nav: ["Projects", "Services", "About"],
+      navCta: "Contact",
+      kicker: "Interior design",
+      headline: "Interiors that feel like home.",
+      text: "We design apartments, offices and restaurants to measure.",
+      primary: "Book a meeting",
+      secondary: "Projects",
+      cards: ["Apartments", "Offices", "Restaurants"],
+      toastTitle: "New enquiry from the website",
+      toastText: "Jana N. · apartment renovation",
+    },
     stats: [
       { value: "Free", label: "initial consultation" },
-      { value: "2–3 weeks", label: "to launch" },
+      { value: "2–3 weeks", label: "and your site is live" },
       { value: "Mobile first", label: "flawless on phones" },
     ],
   },
@@ -251,16 +277,16 @@ const en: Dictionary = {
     },
     dev: {
       title: "Custom features",
-      text: "Bookings, forms, payments and connections to the tools you already use.",
+      text: "Bookings, enquiry forms, a simple shop or connections to the tools you already use.",
     },
     speed: {
       title: "Blazing performance",
       text: "Optimised to the last millisecond. A fast site means better SEO and conversions.",
       label: "performance",
     },
-    shop: {
-      title: "E-commerce",
-      text: "A clean store with easy management of products, orders and payments.",
+    responsive: {
+      title: "On phone and desktop",
+      text: "Your site looks and works great on phones, tablets and large screens.",
     },
     seo: {
       title: "SEO & analytics",
@@ -337,9 +363,9 @@ const en: Dictionary = {
       },
       {
         name: "Premium",
-        description: "E-shops, bookings and bespoke projects",
+        description: "Larger websites and bespoke projects",
         features: [
-          "E-shop or booking system",
+          "Bookings, a shop or a client area",
           "Online payments",
           "Connections to your tools",
           "Scope tailored to you",
@@ -375,7 +401,7 @@ const en: Dictionary = {
     items: [
       {
         q: "How long does it take to build a website?",
-        a: "Most websites go live within 2–3 weeks. It mainly depends on scope and requirements — larger projects like e-shops take longer. You'll get an estimate together with the quote.",
+        a: "Most websites are finished and live on your domain within 2–3 weeks. It mainly depends on scope and requirements — larger projects like e-shops take longer. You'll get an estimate together with the quote.",
       },
       {
         q: "How much does a website cost?",

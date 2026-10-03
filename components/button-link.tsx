@@ -1,11 +1,13 @@
 import type React from "react"
 import { cn } from "@/lib/utils"
 
-type Variant = "primary" | "outline" | "ghost"
+type Variant = "primary" | "accent" | "outline" | "ghost"
 
 const variants: Record<Variant, string> = {
   primary:
     "btn-fill bg-white text-zinc-950 shadow-lg shadow-white/10 hover:shadow-[0_12px_40px_-12px_oklch(0.7_0.2_40/0.8)]",
+  accent:
+    "btn-fill [--btn-fill:#fff] bg-ember text-zinc-950 font-semibold shadow-[0_12px_40px_-12px_oklch(0.7_0.2_40/0.8)] hover:shadow-[0_16px_50px_-12px_oklch(0.7_0.2_40/0.9)]",
   outline:
     "border border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white hover:border-zinc-600 hover:shadow-[0_12px_40px_-16px_rgb(255_255_255/0.25)]",
   ghost: "text-zinc-400 hover:text-white hover:bg-zinc-800",
