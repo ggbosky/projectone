@@ -55,7 +55,6 @@ function LanguageToggle({ className }: { className?: string }) {
 
 export function Navbar() {
   const { t } = useI18n()
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
   const { scrollY } = useScroll()
@@ -83,23 +82,13 @@ export function Navbar() {
         </a>
 
         <div className="hidden lg:flex items-center gap-1">
-          {t.nav.items.map((item, index) => (
+          {t.nav.items.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="relative px-4 py-2 text-sm text-zinc-400 hover:text-white transition-colors"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              className="px-4 py-2 text-sm text-zinc-400 hover:text-ember transition-colors duration-200"
             >
-              {hoveredIndex === index && (
-                <motion.span
-                  layoutId="navbar-hover"
-                  className="absolute inset-0 bg-zinc-800 rounded-full"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{item.label}</span>
+              {item.label}
             </a>
           ))}
         </div>
@@ -139,7 +128,7 @@ export function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="px-4 py-3 text-base text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-2xl transition-colors"
+                  className="px-4 py-3 text-base text-zinc-300 hover:text-ember rounded-2xl transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
