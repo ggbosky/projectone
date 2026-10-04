@@ -19,7 +19,7 @@ const funnelDisplay = Funnel_Display({
 export const metadata: Metadata = {
   title: dictionaries.cs.meta.title,
   description: dictionaries.cs.meta.description,
-  icons: { icon: "/icon.svg" },
+  icons: { icon: "/icon.svg", apple: "/apple-icon.png" },
   openGraph: {
     title: dictionaries.cs.meta.title,
     description: dictionaries.cs.meta.description,
