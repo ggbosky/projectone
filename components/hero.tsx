@@ -6,7 +6,7 @@ import { ArrowRight, Mail } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import type { Dictionary } from "@/lib/dictionary"
 import { ButtonLink } from "@/components/button-link"
-import { HeroFlow } from "@/components/hero-flow"
+import { HeroSketch } from "@/components/hero-sketch"
 
 const textRevealVariants = {
   hidden: { y: "110%" },
@@ -146,8 +146,8 @@ export function Hero() {
 
   return (
     <section id="top" className="relative flex flex-col items-center px-4 pt-40 sm:pt-52 pb-16 overflow-hidden">
-      {/* Background: flowing smoke under the grid */}
-      <HeroFlow className="absolute inset-x-0 top-0 w-full h-[1000px] opacity-30 mix-blend-screen pointer-events-none [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
+      {/* Background: wireframes sketching themselves under the grid */}
+      <HeroSketch className="absolute inset-x-0 top-0 w-full h-[1000px] opacity-30 pointer-events-none [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-ember/20 blur-[120px] pointer-events-none" />
       <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-violet-500/10 blur-[120px] pointer-events-none" />
