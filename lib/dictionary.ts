@@ -82,10 +82,28 @@ const cs = {
     sub: "Ukázka toho, na čem pracujeme. Každý projekt začíná pochopením byznysu, ne výběrem barev.",
     view: "Zobrazit projekt",
     items: [
+      {
+        name: "ALDA — Aleš Javorský",
+        type: "Web · Portfolio videostřihače",
+        year: "2026",
+        result: "Web je online",
+        image: "/work/aldastrih.jpg",
+        url: "https://aldastrih.cz/",
+      },
       { name: "Atelier Nord", type: "Web · Branding", year: "2026", result: "+180 % poptávek" },
       { name: "Kavárna Lumen", type: "E-shop · Shopify", year: "2026", result: "2× vyšší konverze" },
       { name: "Vertex Finance", type: "Web aplikace", year: "2025", result: "0,8 s načtení" },
-      { name: "Studio Forma", type: "Portfolio · Motion", year: "2025", result: "Awwwards nominace" },
+    ],
+  },
+  reviews: {
+    title: "Co říkají klienti",
+    items: [
+      {
+        quote: "To je naprostý masterpiece Karle 🤩",
+        name: "Aleš Javorský",
+        role: "Video editor · aldastrih.cz",
+        photo: "/reviews/ales-javorsky.jpg",
+      },
     ],
   },
   process: {
@@ -307,10 +325,28 @@ const en: Dictionary = {
     sub: "A glimpse of what we work on. Every project starts with understanding the business, not picking colours.",
     view: "View project",
     items: [
+      {
+        name: "ALDA — Aleš Javorský",
+        type: "Web · Video editor portfolio",
+        year: "2026",
+        result: "Live",
+        image: "/work/aldastrih.jpg",
+        url: "https://aldastrih.cz/",
+      },
       { name: "Atelier Nord", type: "Web · Branding", year: "2026", result: "+180% leads" },
       { name: "Kavárna Lumen", type: "E-shop · Shopify", year: "2026", result: "2× conversion rate" },
       { name: "Vertex Finance", type: "Web app", year: "2025", result: "0.8 s load time" },
-      { name: "Studio Forma", type: "Portfolio · Motion", year: "2025", result: "Awwwards nominee" },
+    ],
+  },
+  reviews: {
+    title: "What clients say",
+    items: [
+      {
+        quote: "To je naprostý masterpiece Karle 🤩",
+        name: "Aleš Javorský",
+        role: "Video editor · aldastrih.cz",
+        photo: "/reviews/ales-javorsky.jpg",
+      },
     ],
   },
   process: {

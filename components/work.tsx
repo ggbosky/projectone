@@ -59,6 +59,22 @@ function Cover({ index, name }: { index: number; name: string }) {
   )
 }
 
+// Real project: a screenshot inside a browser frame
+function ScreenshotCover({ image, name }: { image: string; name: string }) {
+  return (
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,oklch(0.7_0.2_40/0.35),transparent_55%),linear-gradient(160deg,#18181b,#09090b)] transition-transform duration-700 ease-out group-hover:scale-105">
+      <div className="absolute inset-x-8 sm:inset-x-12 top-10 sm:top-14 bottom-0 rounded-t-xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10 border-b-0 transition-transform duration-700 ease-out group-hover:-translate-y-2">
+        <div className="flex items-center gap-1.5 px-3 py-2 bg-zinc-900 border-b border-white/5">
+          <span className="w-2 h-2 rounded-full bg-zinc-700" />
+          <span className="w-2 h-2 rounded-full bg-zinc-700" />
+          <span className="w-2 h-2 rounded-full bg-zinc-700" />
+        </div>
+        <img src={image} alt={name} className="w-full h-full object-cover object-top" loading="lazy" />
+      </div>
+    </div>
+  )
+}
+
 export function Work() {
   const { t } = useI18n()
 
@@ -71,7 +87,8 @@ export function Work() {
           {t.work.items.map((item, index) => (
             <motion.a
               key={item.name}
-              href="#kontakt"
+              href={item.url ?? "#kontakt"}
+              {...(item.url ? { target: "_blank", rel: "noopener" } : {})}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -79,7 +96,11 @@ export function Work() {
               className={`group block ${index % 2 === 1 ? "md:mt-16" : ""}`}
             >
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900">
-                <Cover index={index} name={item.name} />
+                {item.image ? (
+                  <ScreenshotCover image={item.image} name={item.name} />
+                ) : (
+                  <Cover index={index} name={item.name} />
+                )}
                 <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-zinc-950/70 backdrop-blur border border-white/10 text-xs text-white font-medium">
                   {item.result}
                 </div>
