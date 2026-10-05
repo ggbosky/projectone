@@ -78,9 +78,9 @@ const cs = {
     },
   },
   work: {
-    title: "Vybrané projekty",
-    sub: "Ukázka toho, na čem pracujeme. Každý projekt začíná pochopením byznysu, ne výběrem barev.",
-    view: "Zobrazit projekt",
+    title: "Poslední klient",
+    sub: "Web, který jsme naposledy spustili.",
+    view: "Otevřít web",
     items: [
       {
         name: "ALDA — Aleš Javorský",
@@ -90,9 +90,6 @@ const cs = {
         image: "/work/aldastrih.jpg",
         url: "https://aldastrih.cz/",
       },
-      { name: "Atelier Nord", type: "Web · Branding", year: "2026", result: "+180 % poptávek" },
-      { name: "Kavárna Lumen", type: "E-shop · Shopify", year: "2026", result: "2× vyšší konverze" },
-      { name: "Vertex Finance", type: "Web aplikace", year: "2025", result: "0,8 s načtení" },
     ],
   },
   reviews: {
@@ -321,9 +318,9 @@ const en: Dictionary = {
     },
   },
   work: {
-    title: "Selected projects",
-    sub: "A glimpse of what we work on. Every project starts with understanding the business, not picking colours.",
-    view: "View project",
+    title: "Latest client",
+    sub: "The website we launched most recently.",
+    view: "Open website",
     items: [
       {
         name: "ALDA — Aleš Javorský",
@@ -333,9 +330,6 @@ const en: Dictionary = {
         image: "/work/aldastrih.jpg",
         url: "https://aldastrih.cz/",
       },
-      { name: "Atelier Nord", type: "Web · Branding", year: "2026", result: "+180% leads" },
-      { name: "Kavárna Lumen", type: "E-shop · Shopify", year: "2026", result: "2× conversion rate" },
-      { name: "Vertex Finance", type: "Web app", year: "2025", result: "0.8 s load time" },
     ],
   },
   reviews: {

@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { ArrowRight, Check, Mail, Phone } from "lucide-react"
+import { ArrowRight, Check, Mail } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { site } from "@/lib/site"
 import { buttonClasses } from "@/components/button-link"
@@ -88,15 +88,6 @@ export function Contact() {
                 <Mail className="w-4 h-4" />
               </span>
               <span className="font-display text-lg">{site.email}</span>
-            </a>
-            <a
-              href={`tel:${site.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-3 text-white hover:text-ember transition-colors w-fit"
-            >
-              <span className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center">
-                <Phone className="w-4 h-4" />
-              </span>
-              <span className="font-display text-lg">{site.phone}</span>
             </a>
           </div>
         </motion.div>

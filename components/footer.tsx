@@ -40,11 +40,6 @@ export function Footer() {
                   {site.email}
                 </a>
               </li>
-              <li>
-                <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="text-zinc-500 hover:text-white transition-colors">
-                  {site.phone}
-                </a>
-              </li>
             </ul>
           </div>
 
