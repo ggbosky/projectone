@@ -67,13 +67,10 @@ const cs = {
   work: {
     title: "Poslední klient",
     sub: "Web, který jsme naposledy spustili.",
-    view: "Otevřít web",
     items: [
       {
         name: "ALDA — Aleš Javorský",
         type: "Web · Portfolio videostřihače",
-        year: "2026",
-        result: "Web je online",
         image: "/work/aldastrih.jpg",
         url: "https://aldastrih.cz/",
       },
@@ -294,13 +291,10 @@ const en: Dictionary = {
   work: {
     title: "Latest client",
     sub: "The website we launched most recently.",
-    view: "Open website",
     items: [
       {
         name: "ALDA — Aleš Javorský",
         type: "Web · Video editor portfolio",
-        year: "2026",
-        result: "Live",
         image: "/work/aldastrih.jpg",
         url: "https://aldastrih.cz/",
       },
