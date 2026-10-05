@@ -1,6 +1,6 @@
-# Project One — web
+# Project Two — web
 
-Moderní prezentační web týmu Project One (Next.js 16, Tailwind CSS 4, Framer Motion, Lenis).
+Moderní prezentační web týmu Project Two (Next.js 16, Tailwind CSS 4, Framer Motion, Lenis).
 
 ## Spuštění
 

@@ -2,9 +2,9 @@ export type Locale = "cs" | "en"
 
 const cs = {
   meta: {
-    title: "Project One — Moderní prémiové weby",
+    title: "Project Two — Moderní prémiové weby",
     description:
-      "Project One navrhuje a vyvíjí moderní, rychlé a prémiové weby, e-shopy a digitální produkty, které vydělávají.",
+      "Project Two navrhuje a vyvíjí moderní, rychlé a prémiové weby, e-shopy a digitální produkty, které vydělávají.",
   },
   nav: {
     items: [
@@ -21,7 +21,7 @@ const cs = {
     line1: "Weby, které",
     line2: "prodávají",
     line2Accent: "za vás.",
-    sub: "Jsme Project One — malý tým, který stojí za každým projektem osobně. Tvoříme moderní, rychlé a prémiové weby, které posunou vaši značku o level výš.",
+    sub: "Jsme Project Two — malý tým, který stojí za každým projektem osobně. Tvoříme moderní, rychlé a prémiové weby, které posunou vaši značku o level výš.",
     primary: "Nezávazná konzultace",
     secondary: "Naše práce",
     stats: [
@@ -226,9 +226,9 @@ export type Dictionary = typeof cs
 
 const en: Dictionary = {
   meta: {
-    title: "Project One — Modern premium websites",
+    title: "Project Two — Modern premium websites",
     description:
-      "Project One designs and builds modern, fast and premium websites, e-commerce and digital products that actually sell.",
+      "Project Two designs and builds modern, fast and premium websites, e-commerce and digital products that actually sell.",
   },
   nav: {
     items: [
@@ -245,7 +245,7 @@ const en: Dictionary = {
     line1: "Websites that",
     line2: "sell",
     line2Accent: "for you.",
-    sub: "We are Project One — a small team that personally stands behind every project. We create modern, fast and premium websites that take your brand to the next level.",
+    sub: "We are Project Two — a small team that personally stands behind every project. We create modern, fast and premium websites that take your brand to the next level.",
     primary: "Free consultation",
     secondary: "Our work",
     stats: [

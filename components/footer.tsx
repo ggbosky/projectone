@@ -13,7 +13,7 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-4 pt-16 pb-8">
         <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-10">
           <div className="col-span-2 md:col-span-1">
-            <a href="#top" className="inline-block mb-4" aria-label="Project One">
+            <a href="#top" className="inline-block mb-4" aria-label="Project Two">
               <Logo />
             </a>
             <p className="text-sm text-zinc-500 max-w-xs">{t.footer.tagline}</p>
@@ -50,7 +50,7 @@ export function Footer() {
           aria-hidden="true"
           className="mt-16 font-display font-semibold tracking-tighter leading-none text-[22vw] md:text-[13.5rem] text-center bg-gradient-to-b from-zinc-800 to-zinc-950 bg-clip-text text-transparent select-none"
         >
-          Project One
+          Project Two
         </div>
 
         <div className="mt-6 pt-8 border-t border-zinc-800 flex justify-center">

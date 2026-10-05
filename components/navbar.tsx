@@ -77,7 +77,7 @@ export function Navbar() {
       className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl"
     >
       <nav className="relative flex items-center justify-between pl-5 pr-2 py-2 rounded-full bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 shadow-2xl shadow-black/40">
-        <a href="#top" aria-label="Project One">
+        <a href="#top" aria-label="Project Two">
           <Logo />
         </a>
 
