@@ -17,6 +17,7 @@ const funnelDisplay = Funnel_Display({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://projectwo.com"),
   title: dictionaries.cs.meta.title,
   description: dictionaries.cs.meta.description,
   icons: { icon: "/icon.svg", apple: "/apple-icon.png" },

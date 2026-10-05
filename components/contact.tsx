@@ -32,34 +32,46 @@ export function Contact() {
   const c = t.contact
   const [types, setTypes] = useState<number[]>([])
   const [budget, setBudget] = useState<number | null>(null)
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
 
   function toggleType(index: number) {
     setTypes((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
   }
 
-  // Zatím odesíláme přes mailto. Pro odesílání na server stačí nahradit tuto funkci
-  // voláním API (např. Resend, Formspree nebo vlastní route handler).
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  // Odesílání přes FormSubmit (https://formsubmit.co) — poptávka dorazí e-mailem na site.email.
+  // Při úplně prvním odeslání pošle FormSubmit na tuto adresu potvrzovací e-mail, který je potřeba jednou odkliknout.
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
-    const lines = [
-      `${c.name}: ${data.get("name")}`,
-      `${c.email}: ${data.get("email")}`,
-      data.get("company") ? `${c.company}: ${data.get("company")}` : null,
-      types.length ? `${c.type} ${types.map((i) => c.types[i]).join(", ")}` : null,
-      budget !== null ? `${c.budget}: ${c.budgets[budget]}` : null,
-      "",
-      String(data.get("message") ?? ""),
-    ].filter((l) => l !== null)
-
-    const href = `mailto:${site.email}?subject=${encodeURIComponent(`${c.subject} — ${data.get("name")}`)}&body=${encodeURIComponent(lines.join("\n"))}`
-    window.location.href = href
-    setSent(true)
+    setStatus("sending")
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${site.email}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `${c.subject} — ${data.get("name")}`,
+          _template: "table",
+          _captcha: "false",
+          _honey: data.get("_honey") ?? "",
+          [c.name]: data.get("name"),
+          [c.email]: data.get("email"),
+          _replyto: data.get("email"),
+          [c.company]: data.get("company") || "—",
+          [c.type]: types.length ? types.map((i) => c.types[i]).join(", ") : "—",
+          [c.budget]: budget !== null ? c.budgets[budget] : "—",
+          [c.message]: data.get("message"),
+        }),
+      })
+      const result = await response.json().catch(() => null)
+      if (!response.ok || (result && String(result.success) === "false")) throw new Error("send failed")
+      setStatus("sent")
+    } catch {
+      setStatus("error")
+    }
   }
 
   function reset() {
-    setSent(false)
+    setStatus("idle")
     setTypes([])
     setBudget(null)
   }
@@ -100,7 +112,7 @@ export function Contact() {
           className="relative rounded-3xl border border-zinc-800 bg-zinc-900/60 backdrop-blur p-6 sm:p-8"
         >
           <AnimatePresence mode="wait">
-            {sent ? (
+            {status === "sent" ? (
               <motion.div
                 key="sent"
                 initial={{ opacity: 0, scale: 0.96 }}
@@ -180,8 +192,24 @@ export function Contact() {
                   />
                 </label>
 
-                <button type="submit" className={buttonClasses("primary", "w-full h-14 text-base")}>
-                  {c.send}
+                {/* Honeypot against spam bots */}
+                <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
+                {status === "error" && (
+                  <p role="alert" className="text-sm text-red-400">
+                    {c.error}{" "}
+                    <a href={`mailto:${site.email}`} className="underline underline-offset-4">
+                      {site.email}
+                    </a>
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className={buttonClasses("primary", "w-full h-14 text-base")}
+                >
+                  {status === "sending" ? c.sending : c.send}
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </motion.form>
