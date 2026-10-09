@@ -91,6 +91,12 @@ const cs = {
         role: "Video editor · aldastrih.cz",
         photo: "/reviews/ales-javorsky.jpg",
       },
+      {
+        quote: "Ty kráso, tak to je fenomén. Interaktivní prvky a animace mě velmi baví. Toto bude prodejní bomba!",
+        name: "Karel Drexler",
+        role: "Grafik a tvůrce · drexler.digital",
+        photo: "/reviews/karel-drexler.jpg",
+      },
     ],
   },
   process: {
@@ -322,6 +328,12 @@ const en: Dictionary = {
         name: "Aleš Javorský",
         role: "Video editor · aldastrih.cz",
         photo: "/reviews/ales-javorsky.jpg",
+      },
+      {
+        quote: "Ty kráso, tak to je fenomén. Interaktivní prvky a animace mě velmi baví. Toto bude prodejní bomba!",
+        name: "Karel Drexler",
+        role: "Grafik a tvůrce · drexler.digital",
+        photo: "/reviews/karel-drexler.jpg",
       },
     ],
   },

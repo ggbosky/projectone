@@ -20,7 +20,7 @@ export function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-md rounded-3xl border border-zinc-800 bg-zinc-900/60 px-8 pt-16 pb-10 text-center"
+              className="relative flex flex-col justify-center w-full max-w-md rounded-3xl border border-zinc-800 bg-zinc-900/60 px-8 pt-16 pb-10 text-center"
             >
               <img
                 src={review.photo}
