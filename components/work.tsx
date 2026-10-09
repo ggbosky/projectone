@@ -9,10 +9,10 @@ export function Work() {
 
   return (
     <section id="prace" className="py-24 px-4 scroll-mt-24">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <SectionHeading title={t.work.title} sub={t.work.sub} />
 
-        <div className="flex flex-col gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
           {t.work.items.map((item) => (
             <motion.a
               key={item.name}
@@ -34,7 +34,7 @@ export function Work() {
                     <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                   </span>
                   <span className="mx-auto px-3 py-1 rounded-md bg-zinc-800/70 text-[11px] text-zinc-400 font-mono">
-                    {item.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                    {item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
                   </span>
                   <span className="w-12" />
                 </div>

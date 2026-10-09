@@ -65,14 +65,20 @@ const cs = {
     },
   },
   work: {
-    title: "Poslední klient",
-    sub: "Web, který jsme naposledy spustili.",
+    title: "Naše práce",
+    sub: "Weby, které jsme nedávno spustili.",
     items: [
       {
         name: "ALDA — Aleš Javorský",
         type: "Web · Portfolio videostřihače",
         image: "/work/aldastrih.jpg",
         url: "https://aldastrih.cz/",
+      },
+      {
+        name: "Karel Drexler",
+        type: "Web · Portfolio grafika a tvůrce",
+        image: "/work/drexler.jpg",
+        url: "https://www.drexler.digital/",
       },
     ],
   },
@@ -291,14 +297,20 @@ const en: Dictionary = {
     },
   },
   work: {
-    title: "Latest client",
-    sub: "The website we launched most recently.",
+    title: "Our work",
+    sub: "Websites we launched recently.",
     items: [
       {
         name: "ALDA — Aleš Javorský",
         type: "Web · Video editor portfolio",
         image: "/work/aldastrih.jpg",
         url: "https://aldastrih.cz/",
+      },
+      {
+        name: "Karel Drexler",
+        type: "Web · Designer & creator portfolio",
+        image: "/work/drexler.jpg",
+        url: "https://www.drexler.digital/",
       },
     ],
   },
