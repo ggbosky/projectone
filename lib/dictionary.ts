@@ -80,6 +80,12 @@ const cs = {
         image: "/work/drexler.jpg",
         url: "https://www.drexler.digital/",
       },
+      {
+        name: "Boží kytky",
+        type: "Web · Floristika Martiny Drexlerové",
+        image: "/work/bozikytky.jpg",
+        url: "https://www.bozikytky.cz/",
+      },
     ],
   },
   reviews: {
@@ -96,6 +102,12 @@ const cs = {
         name: "Karel Drexler",
         role: "Grafik a tvůrce · drexler.digital",
         photo: "/reviews/karel-drexler-2.jpg",
+      },
+      {
+        quote: "Vypadá to super. Za mě perfektní 😍",
+        name: "Martina Drexlerová",
+        role: "Floristka · bozikytky.cz",
+        photo: "/reviews/martina-drexlerova.jpg",
       },
     ],
   },
@@ -318,6 +330,12 @@ const en: Dictionary = {
         image: "/work/drexler.jpg",
         url: "https://www.drexler.digital/",
       },
+      {
+        name: "Boží kytky",
+        type: "Web · Martina Drexlerová florist",
+        image: "/work/bozikytky.jpg",
+        url: "https://www.bozikytky.cz/",
+      },
     ],
   },
   reviews: {
@@ -334,6 +352,12 @@ const en: Dictionary = {
         name: "Karel Drexler",
         role: "Grafik a tvůrce · drexler.digital",
         photo: "/reviews/karel-drexler-2.jpg",
+      },
+      {
+        quote: "Vypadá to super. Za mě perfektní 😍",
+        name: "Martina Drexlerová",
+        role: "Floristka · bozikytky.cz",
+        photo: "/reviews/martina-drexlerova.jpg",
       },
     ],
   },
