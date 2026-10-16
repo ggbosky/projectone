@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { ArrowRight, Check, Mail } from "lucide-react"
+import { ArrowRight, Check, Mail, ShieldCheck } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { site } from "@/lib/site"
 import { buttonClasses } from "@/components/button-link"
@@ -212,6 +212,20 @@ export function Contact() {
                   {status === "sending" ? c.sending : c.send}
                   <ArrowRight className="w-5 h-5" />
                 </button>
+
+                <p className="flex items-start gap-2 text-xs text-zinc-500 leading-relaxed">
+                  <ShieldCheck className="w-4 h-4 mt-px shrink-0 text-zinc-600" />
+                  <span>
+                    {c.privacyNote}{" "}
+                    <a
+                      href={site.legal.privacyPath}
+                      className="text-zinc-300 underline underline-offset-4 decoration-zinc-700 hover:text-ember hover:decoration-ember transition-colors"
+                    >
+                      {c.privacyLink}
+                    </a>
+                    .
+                  </span>
+                </p>
               </motion.form>
             )}
           </AnimatePresence>
