@@ -10,6 +10,17 @@ import { cn } from "@/lib/utils"
 
 type Tab = "web" | "care"
 
+function BorderBeam() {
+  return (
+    <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+      <div
+        className="absolute w-28 h-28 bg-ember/40 blur-2xl border-beam"
+        style={{ offsetPath: "rect(0 100% 100% 0 round 24px)" }}
+      />
+    </div>
+  )
+}
+
 export function Pricing() {
   const { t } = useI18n()
   const [tab, setTab] = useState<Tab>("web")
@@ -18,9 +29,9 @@ export function Pricing() {
   return (
     <section id="cenik" className="py-24 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading index="05" label={t.nav.items[3].label} title={t.pricing.title} sub={t.pricing.sub} className="mb-10" />
+        <SectionHeading title={t.pricing.title} sub={t.pricing.sub} className="mb-10" />
 
-        <div className="flex md:ml-[calc((100%-3rem)/3+3rem)] mb-12">
+        <div className="flex justify-center mb-12">
           <div className="inline-flex items-center p-1 rounded-full bg-zinc-900 border border-zinc-800">
             {(["web", "care"] as const).map((key) => (
               <button
@@ -61,27 +72,21 @@ export function Pricing() {
                 <div
                   key={plan.name}
                   className={cn(
-                    "relative flex flex-col p-7 sm:p-8 rounded-2xl border transition-colors duration-300",
+                    "relative flex flex-col p-7 rounded-3xl border transition-colors duration-300",
                     highlighted
-                      ? "bg-zinc-900 border-ember"
+                      ? "bg-gradient-to-b from-[oklch(0.7_0.2_40/0.22)] via-zinc-900 to-zinc-900 border-ember shadow-[0_0_90px_-25px_oklch(0.7_0.2_40/0.7)] md:-my-4 md:py-11"
                       : "bg-zinc-900/40 border-zinc-800 hover:border-zinc-700",
                   )}
                 >
+                  {highlighted && <BorderBeam />}
                   {highlighted && (
-                    <div className="absolute top-0 inset-x-0 h-1 rounded-t-2xl bg-ember" aria-hidden="true" />
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-ember text-zinc-950 text-xs font-bold uppercase tracking-wider rounded-full whitespace-nowrap shadow-lg shadow-[oklch(0.7_0.2_40/0.4)]">
+                      {t.pricing.popular}
+                    </div>
                   )}
 
                   <div className={cn("mb-6 pb-6 border-b", highlighted ? "border-ember/30" : "border-zinc-800")}>
-                    <div className="flex items-baseline justify-between gap-4 mb-2">
-                      <h3 className={cn("font-display text-3xl font-semibold tracking-tight", highlighted ? "text-ember" : "text-white")}>
-                        {plan.name}
-                      </h3>
-                      {highlighted && (
-                        <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ember whitespace-nowrap">
-                          {t.pricing.popular}
-                        </span>
-                      )}
-                    </div>
+                    <h3 className={cn("font-display text-3xl font-semibold tracking-tight mb-2", highlighted ? "text-ember" : "text-white")}>{plan.name}</h3>
                     <p className="text-zinc-400 text-sm leading-relaxed">{plan.description}</p>
                   </div>
 
@@ -89,7 +94,7 @@ export function Pricing() {
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3 text-sm text-zinc-300">
                         <Check
-                          className={cn("w-4 h-4 mt-0.5 shrink-0", highlighted ? "text-ember" : "text-zinc-500")}
+                          className={cn("w-4 h-4 mt-0.5 shrink-0", highlighted ? "text-ember" : "text-emerald-500")}
                           strokeWidth={2}
                         />
                         {feature}

@@ -14,7 +14,7 @@ export function Process() {
   return (
     <section id="proces" className="py-24 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading index="04" label={t.nav.items[2].label} title={t.process.title} sub={t.process.sub} />
+        <SectionHeading title={t.process.title} sub={t.process.sub} />
 
         <div ref={ref} className="relative">
           {/* Progress line (desktop: horizontal, mobile: vertical) */}

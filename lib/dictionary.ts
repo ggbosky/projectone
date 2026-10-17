@@ -18,7 +18,6 @@ const cs = {
     menu: "Otevřít menu",
   },
   hero: {
-    kicker: "Webové studio",
     line1: "Weby, které",
     line2: "prodávají",
     line2Accent: "za vás.",
@@ -45,6 +44,7 @@ const cs = {
     speed: {
       title: "Bleskový výkon",
       text: "Ladíme web do poslední milisekundy. Rychlý web = lepší SEO i konverze.",
+      label: "výkon",
     },
     responsive: {
       title: "Na mobilu i počítači",
@@ -61,6 +61,8 @@ const cs = {
     care: {
       title: "Péče & podpora",
       text: "Hosting, zálohy, aktualizace a drobné úpravy. O web se postaráme i po spuštění.",
+      status: "Vše běží",
+      bookingDate: "Pá 14. 11.",
     },
   },
   work: {
@@ -88,7 +90,6 @@ const cs = {
     ],
   },
   reviews: {
-    label: "Reference",
     title: "Co říkají klienti",
     items: [
       {
@@ -273,7 +274,6 @@ const en: Dictionary = {
     menu: "Open menu",
   },
   hero: {
-    kicker: "Web design studio",
     line1: "Websites that",
     line2: "sell",
     line2Accent: "for you.",
@@ -300,6 +300,7 @@ const en: Dictionary = {
     speed: {
       title: "Blazing performance",
       text: "Optimised to the last millisecond. A fast site means better SEO and conversions.",
+      label: "performance",
     },
     responsive: {
       title: "On phone and desktop",
@@ -316,6 +317,8 @@ const en: Dictionary = {
     care: {
       title: "Care & support",
       text: "Hosting, backups, updates and small changes. We look after your site after launch too.",
+      status: "All systems go",
+      bookingDate: "Fri 14 Nov",
     },
   },
   work: {
@@ -343,7 +346,6 @@ const en: Dictionary = {
     ],
   },
   reviews: {
-    label: "Testimonials",
     title: "What clients say",
     items: [
       {

@@ -13,10 +13,10 @@ export function Faq() {
 
   return (
     <section id="faq" className="py-24 px-4 scroll-mt-24">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeading index="06" label={t.nav.items[4].label} title={t.faq.title} />
+      <div className="max-w-3xl mx-auto">
+        <SectionHeading title={t.faq.title} />
 
-        <div className="md:ml-[calc((100%-3rem)/3+3rem)] divide-y divide-zinc-800 border-b border-zinc-800">
+        <div className="divide-y divide-zinc-800 border-y border-zinc-800">
           {t.faq.items.map((item, index) => {
             const isOpen = open === index
             return (
@@ -31,13 +31,14 @@ export function Faq() {
                   <span className="font-display text-lg font-medium text-white group-hover:text-zinc-300 transition-colors">
                     {item.q}
                   </span>
-                  <Plus
+                  <span
                     className={cn(
-                      "shrink-0 w-5 h-5 transition-all duration-300",
-                      isOpen ? "rotate-45 text-ember" : "text-zinc-500 group-hover:text-white",
+                      "shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300",
+                      isOpen ? "bg-ember border-ember text-zinc-950 rotate-45" : "border-zinc-700 text-zinc-400",
                     )}
-                    strokeWidth={1.5}
-                  />
+                  >
+                    <Plus className="w-4 h-4" />
+                  </span>
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
