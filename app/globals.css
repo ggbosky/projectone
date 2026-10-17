@@ -13,8 +13,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-funnel-sans), "Funnel Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-funnel-display), "Funnel Display", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-mona), "Mona Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-mona), "Mona Sans", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
@@ -42,6 +42,11 @@
     outline: 2px solid var(--ring);
     outline-offset: 3px;
   }
+}
+
+/* Headings use the expanded cut of Mona Sans */
+.font-display {
+  font-stretch: 118%;
 }
 
 /* Lenis */

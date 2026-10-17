@@ -15,7 +15,7 @@ const locales: { id: Locale; label: string; Flag: typeof FlagCZ }[] = [
   { id: "en", label: "English", Flag: FlagGB },
 ]
 
-function LanguageToggle({ className }: { className?: string }) {
+export function LanguageToggle({ className }: { className?: string }) {
   const { locale, setLocale } = useI18n()
 
   return (

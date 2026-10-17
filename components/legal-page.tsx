@@ -2,59 +2,89 @@
 
 import type { ReactNode } from "react"
 import { ArrowLeft, Mail } from "lucide-react"
-import { I18nProvider } from "@/lib/i18n"
+import { I18nProvider, useI18n } from "@/lib/i18n"
+import type { Locale } from "@/lib/dictionary"
 import { site } from "@/lib/site"
 import { Logo } from "@/components/logo"
 import { Footer } from "@/components/footer"
+import { LanguageToggle } from "@/components/navbar"
 
 export type LegalSection = { id: string; title: string; content: ReactNode }
 
-export function LegalPage({
-  title,
-  intro,
-  summary,
-  sections,
-}: {
-  title: string
-  intro: string
-  summary: string[]
-  sections: LegalSection[]
-}) {
+export type LegalDoc = { title: string; intro: string; summary: string[]; sections: LegalSection[] }
+
+const ui: Record<Locale, Record<string, string>> = {
+  cs: {
+    back: "Zpět na web",
+    eyebrow: "Právní informace",
+    effective: "Účinné od",
+    toc: "Obsah",
+    summary: "Ve zkratce",
+    question: "Máte dotaz?",
+    reply: "Napište nám, odpovíme co nejdříve.",
+  },
+  en: {
+    back: "Back to website",
+    eyebrow: "Legal",
+    effective: "Effective from",
+    toc: "Contents",
+    summary: "In short",
+    question: "Any questions?",
+    reply: "Write to us and we'll get back to you soon.",
+  },
+}
+
+export function LegalPage({ docs }: { docs: Record<Locale, LegalDoc> }) {
   return (
     <I18nProvider>
+      <LegalBody docs={docs} />
+    </I18nProvider>
+  )
+}
+
+function LegalBody({ docs }: { docs: Record<Locale, LegalDoc> }) {
+  const { locale } = useI18n()
+  const { title, intro, summary, sections } = docs[locale]
+  const l = ui[locale]
+
+  return (
+    <>
       <div id="top" className="min-h-screen bg-zinc-950">
         <header className="sticky top-0 z-40 border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-xl">
           <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="/" aria-label="Project Two">
               <Logo />
             </a>
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-ember transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Zpět na web
-            </a>
+            <div className="flex items-center gap-4">
+              <a
+                href="/"
+                className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-ember transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span className="hidden sm:inline">{l.back}</span>
+              </a>
+              <LanguageToggle />
+            </div>
           </div>
         </header>
 
         <main className="max-w-6xl mx-auto px-4 pt-16 pb-24">
           <div className="max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-4">Právní informace</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-4">{l.eyebrow}</p>
             <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-tight text-white text-balance">
               {title}
             </h1>
             <p className="mt-5 text-lg text-zinc-400 leading-relaxed">{intro}</p>
             <p className="mt-4 text-sm text-zinc-500">
-              Účinné od {site.legal.effectiveDate} · {site.domain}
+              {l.effective} {site.legal.effectiveDate} · {site.domain}
             </p>
           </div>
 
           <div className="mt-14 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12">
             {/* Table of contents */}
-            <nav aria-label="Obsah" className="hidden lg:block">
+            <nav aria-label={l.toc} className="hidden lg:block">
               <div className="sticky top-28">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-500 mb-4">Obsah</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-500 mb-4">{l.toc}</p>
                 <ol className="space-y-2.5 text-sm">
                   {sections.map((s, i) => (
                     <li key={s.id}>
@@ -71,7 +101,7 @@ export function LegalPage({
             <div className="max-w-3xl min-w-0">
               {/* Summary */}
               <div className="rounded-3xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8 mb-14">
-                <h2 className="font-display text-lg font-semibold text-white mb-4">Ve zkratce</h2>
+                <h2 className="font-display text-lg font-semibold text-white mb-4">{l.summary}</h2>
                 <ul className="space-y-3">
                   {summary.map((item) => (
                     <li key={item} className="flex gap-3 text-zinc-300 leading-relaxed">
@@ -97,8 +127,8 @@ export function LegalPage({
               {/* Contact */}
               <div className="mt-16 rounded-3xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:justify-between">
                 <div>
-                  <p className="font-display text-lg font-semibold text-white">Máte dotaz?</p>
-                  <p className="text-sm text-zinc-400 mt-1">Napište nám, odpovíme co nejdříve.</p>
+                  <p className="font-display text-lg font-semibold text-white">{l.question}</p>
+                  <p className="text-sm text-zinc-400 mt-1">{l.reply}</p>
                 </div>
                 <a
                   href={`mailto:${site.email}`}
@@ -114,7 +144,7 @@ export function LegalPage({
 
         <Footer />
       </div>
-    </I18nProvider>
+    </>
   )
 }
 

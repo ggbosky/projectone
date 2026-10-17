@@ -62,6 +62,7 @@ const cs = {
       title: "Péče & podpora",
       text: "Hosting, zálohy, aktualizace a drobné úpravy. O web se postaráme i po spuštění.",
       status: "Vše běží",
+      bookingDate: "Pá 14. 11.",
     },
   },
   work: {
@@ -249,8 +250,6 @@ const cs = {
     legalTitle: "Právní informace",
     privacy: "Ochrana osobních údajů",
     cookies: "Informace o cookies",
-    brandNote: "Project Two je obchodní značka podnikatele Karla Drexlera.",
-    icoLabel: "IČO",
     backTop: "Nahoru",
   },
 }
@@ -319,6 +318,7 @@ const en: Dictionary = {
       title: "Care & support",
       text: "Hosting, backups, updates and small changes. We look after your site after launch too.",
       status: "All systems go",
+      bookingDate: "Fri 14 Nov",
     },
   },
   work: {
@@ -349,21 +349,21 @@ const en: Dictionary = {
     title: "What clients say",
     items: [
       {
-        quote: "To je naprostý masterpiece Karle 🤩",
+        quote: "This is an absolute masterpiece, Karel 🤩",
         name: "Aleš Javorský",
         role: "Video editor · aldastrih.cz",
         photo: "/reviews/ales-javorsky.jpg",
       },
       {
-        quote: "Ty kráso, tak to je fenomén. Interaktivní prvky a animace mě velmi baví. Toto bude prodejní bomba!",
+        quote: "Wow, this is phenomenal. I really love the interactive elements and animations. This is going to sell like crazy!",
         name: "Karel Drexler",
-        role: "Grafik a tvůrce · drexler.digital",
+        role: "Designer & creator · drexler.digital",
         photo: "/reviews/karel-drexler-2.jpg",
       },
       {
-        quote: "Vypadá to super. Za mě perfektní 😍",
+        quote: "Looks great. Perfect as far as I'm concerned 😍",
         name: "Martina Drexlerová",
-        role: "Floristka · bozikytky.cz",
+        role: "Florist · bozikytky.cz",
         photo: "/reviews/martina-drexlerova-2.jpg",
       },
     ],
@@ -504,10 +504,8 @@ const en: Dictionary = {
     navTitle: "Navigation",
     contactTitle: "Contact",
     legalTitle: "Legal",
-    privacy: "Privacy policy (CZ)",
-    cookies: "Cookie information (CZ)",
-    brandNote: "Project Two is a trade name of the sole trader Karel Drexler.",
-    icoLabel: "Company ID",
+    privacy: "Privacy policy",
+    cookies: "Cookie information",
     backTop: "Back to top",
   },
 }

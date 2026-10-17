@@ -24,7 +24,7 @@ export function Hero() {
   return (
     <section id="top" className="relative flex flex-col items-center px-4 pt-40 sm:pt-52 pb-28 sm:pb-36 overflow-hidden">
       {/* Background: wireframes sketching themselves under the grid */}
-      <HeroSketch className="absolute inset-x-0 top-0 w-full h-[1000px] opacity-30 pointer-events-none [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
+      <HeroSketch className="hidden md:block absolute inset-x-0 top-0 w-full h-[1000px] opacity-30 pointer-events-none [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-ember/20 blur-[120px] pointer-events-none" />
       <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-violet-500/10 blur-[120px] pointer-events-none" />

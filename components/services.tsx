@@ -113,7 +113,7 @@ function DesignCanvas() {
 }
 
 /* Mini booking widget — a slot gets picked and confirmed on a loop */
-function BookingDemo() {
+function BookingDemo({ date }: { date: string }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: "-80px" })
   const slots = ["9:00", "10:30", "13:00", "14:30", "16:00", "17:30"]
@@ -132,7 +132,7 @@ function BookingDemo() {
   return (
     <div ref={ref} className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4">
       <div className="flex items-center justify-between mb-3 text-xs">
-        <span className="text-zinc-300 font-medium">Pá 14. 11.</span>
+        <span className="text-zinc-300 font-medium">{date}</span>
         <span className="text-zinc-500">6 / 6</span>
       </div>
       <div className="grid grid-cols-3 gap-2">
@@ -344,7 +344,7 @@ export function Services() {
             <ScoreRing />
           </Card>
           <Card icon={CalendarCheck} title={s.dev.title} text={s.dev.text}>
-            <BookingDemo />
+            <BookingDemo date={s.care.bookingDate} />
           </Card>
           <Card icon={MonitorSmartphone} title={s.responsive.title} text={s.responsive.text}>
             <DevicesDemo />

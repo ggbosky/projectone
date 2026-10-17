@@ -1,18 +1,14 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Funnel_Display, Funnel_Sans } from "next/font/google"
+import { Mona_Sans } from "next/font/google"
 import { dictionaries } from "@/lib/dictionary"
 import "./globals.css"
 
-const funnelSans = Funnel_Sans({
+// One variable family: normal width for text, expanded width for headings.
+const monaSans = Mona_Sans({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-funnel-sans",
-  display: "swap",
-})
-
-const funnelDisplay = Funnel_Display({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-funnel-display",
+  axes: ["wdth"],
+  variable: "--font-mona",
   display: "swap",
 })
 
@@ -40,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="cs" className="dark">
       <body
-        className={`${funnelSans.variable} ${funnelDisplay.variable} font-sans antialiased`}
+        className={`${monaSans.variable} font-sans antialiased`}
       >
         <div className="noise-overlay" aria-hidden="true" />
         {children}

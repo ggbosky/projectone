@@ -16,17 +16,11 @@ const I18nContext = createContext<I18nContextValue | null>(null)
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("cs")
 
+  // Czech is the default; English only when the visitor picked it before.
   useEffect(() => {
-    let initial: Locale | null = null
     try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored === "cs" || stored === "en") initial = stored
+      if (localStorage.getItem(STORAGE_KEY) === "en") setLocaleState("en")
     } catch {}
-    if (!initial) {
-      const lang = navigator.language.toLowerCase()
-      initial = lang.startsWith("cs") || lang.startsWith("sk") ? "cs" : "en"
-    }
-    setLocaleState(initial)
   }, [])
 
   useEffect(() => {
