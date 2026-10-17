@@ -100,7 +100,7 @@ function LegalBody({ docs }: { docs: Record<Locale, LegalDoc> }) {
 
             <div className="max-w-3xl min-w-0">
               {/* Summary */}
-              <div className="rounded-3xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8 mb-14">
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8 mb-14">
                 <h2 className="font-display text-lg font-semibold text-white mb-4">{l.summary}</h2>
                 <ul className="space-y-3">
                   {summary.map((item) => (
@@ -125,7 +125,7 @@ function LegalBody({ docs }: { docs: Record<Locale, LegalDoc> }) {
               </div>
 
               {/* Contact */}
-              <div className="mt-16 rounded-3xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:justify-between">
+              <div className="mt-16 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:justify-between">
                 <div>
                   <p className="font-display text-lg font-semibold text-white">{l.question}</p>
                   <p className="text-sm text-zinc-400 mt-1">{l.reply}</p>

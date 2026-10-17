@@ -10,7 +10,7 @@ export function Work() {
   return (
     <section id="prace" className="py-24 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading title={t.work.title} sub={t.work.sub} />
+        <SectionHeading index="02" label={t.nav.items[1].label} title={t.work.title} sub={t.work.sub} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
           {t.work.items.map((item) => (
@@ -25,7 +25,7 @@ export function Work() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="group block"
             >
-              <div className="relative rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-950 transition-colors duration-300 group-hover:border-zinc-700">
+              <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 transition-colors duration-300 group-hover:border-zinc-700">
                 {/* Browser chrome */}
                 <div className="flex items-center gap-1.5 px-4 py-3 border-b border-zinc-800 bg-zinc-900/60">
                   <span className="flex gap-1.5 w-12">

@@ -78,7 +78,6 @@ export function Contact() {
 
   return (
     <section id="kontakt" className="relative py-24 px-4 scroll-mt-24 overflow-hidden">
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] rounded-full bg-ember/10 blur-[140px] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16">
         <motion.div
@@ -88,8 +87,9 @@ export function Contact() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="lg:pt-6"
         >
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tighter text-white mb-6 text-balance">
-            {c.title} <span className="text-ember">{c.titleAccent}</span>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-white mb-6 text-balance">
+            {c.title} {c.titleAccent.replace(/\.$/, "")}
+            <span className="text-ember">.</span>
           </h2>
           <p className="text-lg text-zinc-400 leading-relaxed mb-10 max-w-md">{c.sub}</p>
 
@@ -109,7 +109,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative rounded-3xl border border-zinc-800 bg-zinc-900/60 backdrop-blur p-6 sm:p-8"
+          className="relative rounded-2xl border border-zinc-800 bg-zinc-900/60 backdrop-blur p-6 sm:p-8"
         >
           <AnimatePresence mode="wait">
             {status === "sent" ? (

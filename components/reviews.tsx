@@ -10,7 +10,7 @@ export function Reviews() {
   return (
     <section id="recenze" className="py-24 px-4 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading title={t.reviews.title} className="mb-20" />
+        <SectionHeading index="03" label={t.reviews.label} title={t.reviews.title} className="mb-20" />
 
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-16">
           {t.reviews.items.map((review, index) => (
@@ -20,7 +20,7 @@ export function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex flex-col justify-center w-full max-w-md lg:max-w-[22rem] rounded-3xl border border-zinc-800 bg-zinc-900/60 px-8 pt-16 pb-10 text-center"
+              className="relative flex flex-col justify-center w-full max-w-md lg:max-w-[22rem] rounded-2xl border border-zinc-800 bg-zinc-900/60 px-8 pt-16 pb-10 text-center"
             >
               <img
                 src={review.photo}
