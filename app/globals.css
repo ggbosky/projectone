@@ -234,3 +234,59 @@ html.lenis body {
   background: rgb(39 39 42);
   color: rgb(228 228 231);
 }
+
+/* Concierge trigger: slowly rotating ember edge + soft halo */
+@property --concierge-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes concierge-spin {
+  to {
+    --concierge-angle: 360deg;
+  }
+}
+
+@keyframes concierge-halo {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.concierge-trigger::before,
+.concierge-trigger::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.concierge-trigger::before {
+  inset: -1px;
+  padding: 1px;
+  background: conic-gradient(from var(--concierge-angle), transparent 0 65%, var(--ember) 85%, transparent);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: concierge-spin 4s linear infinite;
+}
+
+.concierge-trigger::after {
+  inset: 4px;
+  z-index: -1;
+  background: var(--ember);
+  filter: blur(18px);
+  animation: concierge-halo 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .concierge-trigger::before,
+  .concierge-trigger::after {
+    animation: none;
+  }
+}
