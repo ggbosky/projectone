@@ -34,11 +34,11 @@ export function Contact() {
   const [types, setTypes] = useState<number[]>([])
   const [budget, setBudget] = useState<number | null>(null)
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
-  const [style, setStyle] = useState<number | null>(null)
+  const [style, setStyle] = useState<string | null>(null)
 
   // A style picked in the style picker section rides along with the inquiry.
   useEffect(() => {
-    const onStyle = (e: Event) => setStyle((e as CustomEvent<number>).detail)
+    const onStyle = (e: Event) => setStyle((e as CustomEvent<string>).detail)
     window.addEventListener(STYLE_EVENT, onStyle)
     return () => window.removeEventListener(STYLE_EVENT, onStyle)
   }, [])
@@ -68,7 +68,7 @@ export function Contact() {
           [c.company]: data.get("company") || "—",
           [c.type]: types.length ? types.map((i) => c.types[i]).join(", ") : "—",
           [c.budget]: budget !== null ? c.budgets[budget] : "—",
-          [c.style]: style !== null ? t.styles.items[style].name : "—",
+          [c.style]: style ?? "—",
           [c.message]: data.get("message"),
         }),
       })
@@ -192,11 +192,11 @@ export function Contact() {
                   </div>
                 </fieldset>
 
-                {style !== null && (
-                  <div className="flex items-center gap-3 rounded-2xl border border-ember/40 bg-ember/[0.06] pl-4 pr-2 py-2 text-sm">
-                    <Palette className="w-4 h-4 text-ember shrink-0" />
-                    <span className="text-zinc-400">
-                      {c.style}: <span className="text-white">{t.styles.items[style].name}</span>
+                {style && (
+                  <div className="flex items-start gap-3 rounded-2xl border border-ember/40 bg-ember/[0.06] pl-4 pr-2 py-2 text-sm">
+                    <Palette className="w-4 h-4 mt-2 text-ember shrink-0" />
+                    <span className="py-1.5 text-zinc-400 leading-relaxed">
+                      {c.style}: <span className="text-white">{style}</span>
                     </span>
                     <button
                       type="button"
