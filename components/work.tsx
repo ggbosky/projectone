@@ -12,7 +12,7 @@ export function Work() {
       <div className="max-w-6xl mx-auto">
         <SectionHeading title={t.work.title} sub={t.work.sub} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
           {t.work.items.map((item) => (
             <motion.a
               key={item.name}

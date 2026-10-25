@@ -87,6 +87,12 @@ const cs = {
         image: "/work/bozikytky.jpg",
         url: "https://www.bozikytky.cz/",
       },
+      {
+        name: "Finelia",
+        type: "Web · Daňové a účetní poradenství",
+        image: "/work/finelia.jpg",
+        url: "https://finelia.cz/",
+      },
     ],
   },
   reviews: {
@@ -109,6 +115,12 @@ const cs = {
         name: "Martina Drexlerová",
         role: "Floristka · bozikytky.cz",
         photo: "/reviews/martina-drexlerova-2.jpg",
+      },
+      {
+        quote: "Spolupráce byla kvalitní a bezproblémová. Webové stránky vyhovují naší představě a povedly se vytvořit ve velmi krátké době. Děkujeme.",
+        name: "Finelia",
+        role: "Daňové a účetní poradenství · finelia.cz",
+        photo: "/reviews/finelia.jpg",
       },
     ],
   },
@@ -408,6 +420,12 @@ const en: Dictionary = {
         image: "/work/bozikytky.jpg",
         url: "https://www.bozikytky.cz/",
       },
+      {
+        name: "Finelia",
+        type: "Web · Tax & accounting advisory",
+        image: "/work/finelia.jpg",
+        url: "https://finelia.cz/",
+      },
     ],
   },
   reviews: {
@@ -430,6 +448,12 @@ const en: Dictionary = {
         name: "Martina Drexlerová",
         role: "Florist · bozikytky.cz",
         photo: "/reviews/martina-drexlerova-2.jpg",
+      },
+      {
+        quote: "The collaboration was high-quality and hassle-free. The website matches what we had in mind and was built in a very short time. Thank you.",
+        name: "Finelia",
+        role: "Tax & accounting advisory · finelia.cz",
+        photo: "/reviews/finelia.jpg",
       },
     ],
   },
