@@ -241,6 +241,11 @@ export function Contact() {
                   <ArrowRight className="w-5 h-5" />
                 </button>
 
+                <p className="flex items-start gap-2 text-sm text-zinc-400 leading-relaxed">
+                  <Mail className="w-4 h-4 mt-0.5 shrink-0 text-ember" />
+                  <span>{c.emailNote}</span>
+                </p>
+
                 <p className="flex items-start gap-2 text-xs text-zinc-500 leading-relaxed">
                   <ShieldCheck className="w-4 h-4 mt-px shrink-0 text-zinc-600" />
                   <span>
