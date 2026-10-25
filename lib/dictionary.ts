@@ -95,6 +95,45 @@ const cs = {
       },
     ],
   },
+  styles: {
+    title: "Jaký styl je vám nejblíž?",
+    sub: "Nemusíte umět popsat, jaký web chcete. Proklikejte si styly a vyberte ten, který vám sedí. Každý vychází z webu, který jsme opravdu postavili.",
+    brand: "Vaše značka",
+    nav: ["Služby", "O nás", "Kontakt"],
+    reference: "V praxi:",
+    more: "Více",
+    cta: "Chci web v tomto stylu",
+    items: [
+      {
+        name: "Minimalistický & tmavý",
+        tags: ["Kontrast", "Prostor", "Elegance"],
+        headline: "Méně je víc.",
+        text: "Čistý design, který nechá vyniknout vaši práci.",
+        button: "Ukázka práce",
+      },
+      {
+        name: "Výrazný & odvážný",
+        tags: ["Barvy", "Velká typografie", "Energie"],
+        headline: "Buďte vidět.",
+        text: "Odvážné barvy a písmo, které si lidé zapamatují.",
+        button: "Chci to",
+      },
+      {
+        name: "Jemný & elegantní",
+        tags: ["Přírodní tóny", "Patkové písmo", "Osobní"],
+        headline: "S láskou k detailu.",
+        text: "Jemné tóny a elegantní písmo pro osobní značky.",
+        button: "Prohlédnout",
+      },
+      {
+        name: "Čistý & profesionální",
+        tags: ["Důvěra", "Přehlednost", "Korporátní"],
+        headline: "Jistota a přehled.",
+        text: "Profesionální web, který budí důvěru na první pohled.",
+        button: "Konzultace",
+      },
+    ],
+  },
   reviews: {
     title: "Co říkají klienti",
     items: [
@@ -254,6 +293,8 @@ const cs = {
     subject: "Poptávka z webu",
     privacyNote: "Údaje z formuláře použijeme k vyřízení vaší poptávky a navazující komunikaci. Podrobnosti najdete v",
     privacyLink: "Zásadách ochrany osobních údajů",
+    style: "Vybraný styl",
+    removeStyle: "Odebrat styl",
   },
   concierge: {
     trigger: "Navrhnout projekt s AI",
@@ -428,6 +469,45 @@ const en: Dictionary = {
       },
     ],
   },
+  styles: {
+    title: "Which style feels like you?",
+    sub: "You don't need to know how to describe the website you want. Click through the styles and pick the one that fits. Each is based on a website we actually built.",
+    brand: "Your brand",
+    nav: ["Services", "About", "Contact"],
+    reference: "In practice:",
+    more: "More",
+    cta: "I want this style",
+    items: [
+      {
+        name: "Minimal & dark",
+        tags: ["Contrast", "Space", "Elegance"],
+        headline: "Less is more.",
+        text: "Clean design that lets your work shine.",
+        button: "See work",
+      },
+      {
+        name: "Bold & daring",
+        tags: ["Colour", "Big type", "Energy"],
+        headline: "Get noticed.",
+        text: "Bold colours and type that people remember.",
+        button: "I want it",
+      },
+      {
+        name: "Soft & elegant",
+        tags: ["Natural tones", "Serif type", "Personal"],
+        headline: "Made with care.",
+        text: "Soft tones and elegant type for personal brands.",
+        button: "Explore",
+      },
+      {
+        name: "Clean & professional",
+        tags: ["Trust", "Clarity", "Corporate"],
+        headline: "Clarity you can trust.",
+        text: "A professional website that builds trust at first sight.",
+        button: "Consultation",
+      },
+    ],
+  },
   reviews: {
     title: "What clients say",
     items: [
@@ -587,6 +667,8 @@ const en: Dictionary = {
     subject: "Website enquiry",
     privacyNote: "We use the details from this form to handle your enquiry and follow-up communication. Details are in our",
     privacyLink: "Privacy policy",
+    style: "Chosen style",
+    removeStyle: "Remove style",
   },
   concierge: {
     trigger: "Plan your project with AI",

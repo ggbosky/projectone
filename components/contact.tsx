@@ -1,11 +1,12 @@
 "use client"
 
-import { useState, type FormEvent } from "react"
+import { useEffect, useState, type FormEvent } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { ArrowRight, Check, Mail, ShieldCheck } from "lucide-react"
+import { ArrowRight, Check, Mail, Palette, ShieldCheck, X } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { site } from "@/lib/site"
 import { buttonClasses } from "@/components/button-link"
+import { STYLE_EVENT } from "@/components/style-picker"
 import { cn } from "@/lib/utils"
 
 const inputClasses =
@@ -33,6 +34,14 @@ export function Contact() {
   const [types, setTypes] = useState<number[]>([])
   const [budget, setBudget] = useState<number | null>(null)
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+  const [style, setStyle] = useState<number | null>(null)
+
+  // A style picked in the style picker section rides along with the inquiry.
+  useEffect(() => {
+    const onStyle = (e: Event) => setStyle((e as CustomEvent<number>).detail)
+    window.addEventListener(STYLE_EVENT, onStyle)
+    return () => window.removeEventListener(STYLE_EVENT, onStyle)
+  }, [])
 
   function toggleType(index: number) {
     setTypes((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
@@ -59,6 +68,7 @@ export function Contact() {
           [c.company]: data.get("company") || "—",
           [c.type]: types.length ? types.map((i) => c.types[i]).join(", ") : "—",
           [c.budget]: budget !== null ? c.budgets[budget] : "—",
+          [c.style]: style !== null ? t.styles.items[style].name : "—",
           [c.message]: data.get("message"),
         }),
       })
@@ -74,6 +84,7 @@ export function Contact() {
     setStatus("idle")
     setTypes([])
     setBudget(null)
+    setStyle(null)
   }
 
   return (
@@ -180,6 +191,23 @@ export function Contact() {
                     ))}
                   </div>
                 </fieldset>
+
+                {style !== null && (
+                  <div className="flex items-center gap-3 rounded-2xl border border-ember/40 bg-ember/[0.06] pl-4 pr-2 py-2 text-sm">
+                    <Palette className="w-4 h-4 text-ember shrink-0" />
+                    <span className="text-zinc-400">
+                      {c.style}: <span className="text-white">{t.styles.items[style].name}</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setStyle(null)}
+                      aria-label={c.removeStyle}
+                      className="ml-auto p-1.5 rounded-full text-zinc-500 hover:text-white hover:bg-zinc-800 transition-colors"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
 
                 <label className="block">
                   <span className="sr-only">{c.message}</span>
