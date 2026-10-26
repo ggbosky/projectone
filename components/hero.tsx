@@ -38,10 +38,18 @@ export function Hero() {
               {t.hero.line1}
             </motion.span>
           </span>
-          <span className="block overflow-hidden pb-3">
+          <span className="block overflow-hidden pb-7 -mb-4">
             <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={1}>
-              <span className="text-ember underline decoration-ember/70 decoration-[0.06em] underline-offset-[0.14em] [text-decoration-skip-ink:auto]">
+              <span className="relative inline-block text-ember">
                 {t.hero.line2}
+                {/* Thin underline that draws in and fades out to the right */}
+                <motion.span
+                  aria-hidden="true"
+                  className="absolute left-[0.04em] right-0 -bottom-[0.16em] h-[0.04em] rounded-full bg-gradient-to-r from-ember via-ember/60 to-transparent origin-left"
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  animate={{ scaleX: 1, opacity: 1 }}
+                  transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                />
               </span>{" "}
               <span className="text-zinc-500">{t.hero.line2Accent}</span>
             </motion.span>

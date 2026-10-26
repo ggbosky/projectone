@@ -94,7 +94,7 @@ html.lenis body {
   animation: border-beam 8s linear infinite;
 }
 
-/* Primary button: accent fill rising from the bottom on hover */
+/* Primary button: accent fill fading in on hover */
 .btn-fill {
   position: relative;
   overflow: hidden;
@@ -108,13 +108,13 @@ html.lenis body {
   z-index: -1;
   background: var(--btn-fill, var(--ember));
   border-radius: inherit;
-  transform: translateY(101%);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn-fill:hover::after,
 .btn-fill:focus-visible::after {
-  transform: translateY(0);
+  opacity: 1;
 }
 
 /* Pulse glow for status indicators */
