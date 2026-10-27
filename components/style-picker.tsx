@@ -239,9 +239,17 @@ function Preview({ design }: { design: Design }) {
 /* Controls                                                            */
 /* ------------------------------------------------------------------ */
 
-function Group({ label, children }: { label: string; children: ReactNode }) {
+// On small screens only the group of the active tab is shown; on desktop all groups are listed.
+function Group({ label, active, children }: { label: string; active: boolean; children: ReactNode }) {
   return (
-    <div role="group" aria-label={label} className="py-5 border-t border-zinc-800 first:border-t-0 first:pt-0">
+    <div
+      role="group"
+      aria-label={label}
+      className={cn(
+        "pb-5 lg:py-5 lg:border-t lg:border-zinc-800 lg:first:border-t-0 lg:first:pt-0",
+        !active && "hidden lg:block",
+      )}
+    >
       <p className="mb-3 text-sm text-zinc-400">{label}</p>
       {children}
     </div>
@@ -258,7 +266,7 @@ function Segmented({ options, value, onChange, cols }: { options: string[]; valu
           aria-pressed={value === i}
           onClick={() => onChange(i)}
           className={cn(
-            "h-10 px-2 rounded-xl text-sm border transition-colors",
+            "min-h-10 py-2 px-2 rounded-xl text-sm leading-tight border transition-colors",
             value === i ? "bg-white text-zinc-950 border-white" : "border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-white",
           )}
         >
@@ -274,6 +282,7 @@ export function StylePicker() {
   const s = t.styles
   const [design, setDesign] = useState<Design>(initial)
   const [mobile, setMobile] = useState(false)
+  const [tab, setTab] = useState(0)
   const set = (patch: Partial<Design>) => setDesign((d) => ({ ...d, ...patch }))
   const c = palette(design)
 
@@ -316,8 +325,8 @@ export function StylePicker() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 lg:gap-8 items-start">
           {/* Controls */}
-          <div className="order-2 lg:order-1 rounded-3xl border border-zinc-800 bg-zinc-900/60 p-5 sm:p-6">
-            <Group label={s.brandLabel}>
+          <div className="order-2 lg:order-1 rounded-3xl border border-zinc-800 bg-zinc-900/60 p-4 sm:p-6">
+            <Group label={s.brandLabel} active>
               <input
                 value={design.brand}
                 onChange={(e) => set({ brand: e.target.value.slice(0, 28) })}
@@ -326,11 +335,28 @@ export function StylePicker() {
               />
             </Group>
 
-            <Group label={s.background.label}>
-              <Segmented options={s.background.options} value={design.background} onChange={(i) => set({ background: i })} cols="grid-cols-2" />
+            <div role="tablist" aria-label={s.title} className="lg:hidden grid grid-cols-4 gap-1.5 pb-4 mb-1">
+              {s.tabs.map((label, i) => (
+                <button
+                  key={label}
+                  type="button"
+                  role="tab"
+                  aria-selected={tab === i}
+                  onClick={() => setTab(i)}
+                  className={cn(
+                    "h-9 px-1 rounded-full text-[13px] border transition-colors",
+                    tab === i ? "bg-white text-zinc-950 border-white" : "border-zinc-800 text-zinc-400",
+                  )}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <Group label={s.background.label} active={tab === 0}>
+              <Segmented options={s.background.options} value={design.background} onChange={(i) => set({ background: i })} cols="grid-cols-4 lg:grid-cols-2" />
             </Group>
 
-            <Group label={s.accent.label}>
+            <Group label={s.accent.label} active={tab === 0}>
               <div className="flex flex-wrap gap-2">
                 {accents.map((hex) => (
                   <button
@@ -365,7 +391,7 @@ export function StylePicker() {
               </div>
             </Group>
 
-            <Group label={s.font.label}>
+            <Group label={s.font.label} active={tab === 1}>
               <div className="grid grid-cols-1 gap-1.5">
                 {s.font.options.map((label, i) => (
                   <button
@@ -387,7 +413,7 @@ export function StylePicker() {
               </div>
             </Group>
 
-            <Group label={s.shape.label}>
+            <Group label={s.shape.label} active={tab === 2}>
               <div className="grid grid-cols-3 gap-1.5">
                 {s.shape.options.map((label, i) => (
                   <button
@@ -407,16 +433,16 @@ export function StylePicker() {
               </div>
             </Group>
 
-            <Group label={s.layout.label}>
+            <Group label={s.layout.label} active={tab === 3}>
               <Segmented
                 options={s.layout.options}
                 value={design.layout}
                 onChange={(i) => set({ layout: i })}
-                cols="grid-cols-1 sm:grid-cols-3 lg:grid-cols-1"
+                cols="grid-cols-3 lg:grid-cols-1"
               />
             </Group>
 
-            <div className="pt-5 border-t border-zinc-800 flex gap-2">
+            <div className="pt-4 lg:pt-5 border-t border-zinc-800 flex gap-2">
               <button type="button" onClick={shuffle} className={buttonClasses("outline", "flex-1 h-10 px-4 text-sm hover:[&_svg]:translate-x-0")}>
                 <Shuffle className="w-4 h-4" />
                 {s.shuffle}
@@ -434,7 +460,7 @@ export function StylePicker() {
           </div>
 
           {/* Preview */}
-          <div className="order-1 lg:order-2 sticky top-3 lg:top-24 z-10 min-w-0">
+          <div className="order-1 lg:order-2 lg:sticky lg:top-24 min-w-0">
             <div className="hidden lg:flex items-center justify-between gap-4 mb-3">
               <div className="inline-flex p-1 rounded-full bg-zinc-900 border border-zinc-800" role="group">
                 {[Monitor, Smartphone].map((Icon, i) => (
@@ -472,7 +498,7 @@ export function StylePicker() {
                 <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                 <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
               </div>
-              <div data-lenis-prevent className="h-[42vh] min-h-[280px] sm:h-[460px] lg:h-[600px] overflow-y-auto overscroll-contain">
+              <div data-lenis-prevent className="h-[300px] sm:h-[460px] lg:h-[600px] overflow-y-auto overscroll-contain">
                 <Preview design={design} />
               </div>
             </div>

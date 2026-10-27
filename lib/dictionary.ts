@@ -2,9 +2,9 @@ export type Locale = "cs" | "en"
 
 const cs = {
   meta: {
-    title: "Project Two — Moderní prémiové weby",
+    title: "Project Two — weby na míru pro firmy a osobní značky",
     description:
-      "Project Two navrhuje a vyvíjí moderní, rychlé a prémiové weby, e-shopy a digitální produkty, které vydělávají.",
+      "Malý tým, který navrhuje a staví weby pro živnostníky, firmy a osobní značky. Většina webů je online do 2–3 týdnů.",
   },
   nav: {
     items: [
@@ -18,56 +18,56 @@ const cs = {
     menu: "Otevřít menu",
   },
   hero: {
-    line1: "Weby, které",
-    line2: "prodávají",
-    line2Accent: "za vás.",
-    sub: "Jsme Project Two — malý tým, který stojí za každým projektem osobně. Tvoříme moderní, rychlé a prémiové weby, které posunou vaši značku o level výš.",
-    primary: "Nezávazná konzultace",
+    line1: "Web, ze kterého",
+    line2Lead: "budete mít",
+    line2: "radost.",
+    sub: "Jsme Project Two, malý tým, se kterým mluvíte napřímo. Navrhneme a postavíme vám web, který dobře vypadá, rychle se načte a lidé na něm hned najdou, co hledají.",
+    primary: "Napsat poptávku",
     secondary: "Naše práce",
     stats: [
-      { value: "Zdarma", label: "úvodní konzultace" },
+      { value: "Zdarma", label: "nabídka i první rada" },
       { value: "2–3 týdny", label: "a váš web je online" },
-      { value: "Mobile first", label: "perfektní na telefonu" },
+      { value: "Telefon", label: "ladíme jako první, odtud chodí většina lidí" },
     ],
   },
   services: {
-    title: "Vše pro web, který dává smysl",
-    sub: "Od strategie a designu až po vývoj, spuštění a dlouhodobou péči. Jeden tým, žádné kompromisy.",
+    title: "Co pro vás uděláme",
+    sub: "Od prvního návrhu přes spuštění až po péči o web. Všechno na jednom místě, takže nemusíte zvlášť shánět grafika, programátora a správce.",
     design: {
-      title: "Webdesign & UI/UX",
-      text: "Unikátní design na míru vaší značce. Žádné šablony — každý pixel má svůj důvod.",
+      title: "Design na míru",
+      text: "Web navrhujeme podle vaší značky a lidí, pro které je. Ne podle toho, co je zrovna v módě.",
     },
     dev: {
       title: "Funkce na míru",
-      text: "Rezervace, poptávkové formuláře, jednoduchý e-shop nebo napojení na nástroje, které už používáte.",
+      text: "Rezervace, poptávkový formulář, jednoduchý e-shop nebo propojení s nástroji, které už používáte.",
     },
     speed: {
-      title: "Bleskový výkon",
-      text: "Ladíme web do poslední milisekundy. Rychlý web = lepší SEO i konverze.",
+      title: "Rychlé načítání",
+      text: "Web se načte rychle i na slabém signálu. Lidé neodcházejí a Google to taky ocení.",
       label: "výkon",
     },
     responsive: {
       title: "Na mobilu i počítači",
-      text: "Web vypadá a funguje skvěle na telefonu, tabletu i velké obrazovce.",
+      text: "Web vypadá a funguje stejně dobře na telefonu, tabletu i velkém monitoru.",
     },
     seo: {
-      title: "SEO & analytika",
-      text: "Technické SEO, měření a data, podle kterých web roste.",
+      title: "SEO a měření",
+      text: "Postaráme se, aby vás našel Google, a nastavíme měření, ať víte, co na webu funguje.",
     },
     motion: {
-      title: "Animace & interakce",
-      text: "Jemný motion design, který působí prémiově a vede pozornost.",
+      title: "Animace",
+      text: "Jemný pohyb tam, kde pomáhá: upozorní na důležité a web díky němu působí živě.",
     },
     care: {
-      title: "Péče & podpora",
-      text: "Hosting, zálohy, aktualizace a drobné úpravy. O web se postaráme i po spuštění.",
+      title: "Péče po spuštění",
+      text: "Hosting, zálohy, aktualizace a drobné úpravy. Když potřebujete něco změnit, prostě nám napíšete.",
       status: "Vše běží",
       bookingDate: "Pá 14. 11.",
     },
   },
   work: {
     title: "Naše práce",
-    sub: "Weby, které jsme nedávno spustili.",
+    sub: "Pár webů, které jsme spustili a které už běží.",
     items: [
       {
         name: "ALDA — Aleš Javorský",
@@ -99,6 +99,7 @@ const cs = {
     title: "Naklikejte si svůj styl",
     sub: "Nemusíte umět popsat, jaký web chcete. Vyzkoušejte barvy, písmo a tvary a hned uvidíte, jak by mohl vypadat. Hotový návrh nám pošlete jedním kliknutím.",
     brandLabel: "Název značky",
+    tabs: ["Barvy", "Písmo", "Tvary", "Rozložení"],
     brandPlaceholder: "Vaše značka",
     background: { label: "Pozadí", options: ["Světlé", "Teplé", "Tmavé", "Barevné"] },
     accent: { label: "Hlavní barva", custom: "Vlastní barva" },
@@ -112,7 +113,7 @@ const cs = {
     hint: "Návrh přiložíme k vaší poptávce. Nic vás nezavazuje, finální podobu ladíme společně.",
     preview: {
       nav: ["Služby", "O nás", "Kontakt"],
-      headline: "Web, který mluví za vás.",
+      headline: "Tady bude váš hlavní nadpis.",
       text: "Sem patří pár vět o tom, co děláte a proč by si vás lidé měli vybrat.",
       primary: "Kontaktujte nás",
       secondary: "Více o nás",
@@ -156,42 +157,45 @@ const cs = {
     ],
   },
   process: {
-    title: "Jasný postup, žádná překvapení",
-    sub: "Víte, co se děje v každé fázi. Průběžně ukazujeme výsledky a ladíme je s vámi.",
+    title: "Jak to probíhá",
+    sub: "Žádná složitá metodika. Čtyři kroky a v každém víte, na čem jsme.",
     steps: [
       {
-        title: "Úvodní hovor",
-        text: "Probereme, co potřebujete, pro koho web je a co má přinést. Nezávazně a zdarma.",
+        title: "Poptávka",
+        text: "Napíšete nám, co potřebujete. Na pár věcí se doptáme e-mailem, nebo si zavoláme, pokud je vám to milejší.",
       },
       {
         title: "Návrh a nabídka",
-        text: "Připravíme strukturu webu, vizuální směr a konkrétní nabídku bez skrytých položek.",
+        text: "Pošleme vám strukturu webu, vizuální směr a cenu. Bez skrytých položek a drobného písma.",
       },
       {
-        title: "Tvorba webu",
-        text: "Web postavíme, průběžně vám ho ukazujeme a zapracujeme vaše připomínky.",
+        title: "Tvorba",
+        text: "Web stavíme a průběžně vám posíláme ukázky. Co se vám nelíbí, upravíme.",
       },
       {
-        title: "Spuštění a podpora",
-        text: "Web spustíme na vaší doméně, nastavíme měření a zůstáváme k dispozici i potom.",
+        title: "Spuštění",
+        text: "Web spustíme na vaší doméně, ukážeme vám, jak si ho upravit, a jsme tu i potom.",
       },
     ],
   },
   pricing: {
     title: "Balíčky",
-    sub: "Každý projekt naceníme individuálně podle rozsahu. Konkrétní nabídku dostanete po úvodním hovoru — zdarma a nezávazně.",
+    sub: "Ceny jsou orientační, ať hned víte, s čím počítat. Přesnou částku vám pošleme v nabídce podle toho, co má web umět.",
+    from: "od",
     tabs: { web: "Web", care: "Péče" },
     popular: "Nejoblíbenější",
     web: [
       {
         name: "Start",
         description: "Pro živnostníky, nové značky a jednoduché prezentace",
+        price: "10 000 Kč",
         features: ["Jednostránkový web", "Design na míru", "Optimalizace pro mobily", "Kontaktní formulář", "Základní SEO", "Spuštění na vaší doméně"],
         cta: "Chci Start",
       },
       {
         name: "Business",
-        description: "Pro firmy, které chtějí růst online",
+        description: "Pro firmy, které potřebují víc stránek a chtějí si obsah spravovat samy",
+        price: "20 000 Kč",
         features: [
           "Web s více podstránkami",
           "Návrh designu ke schválení",
@@ -205,7 +209,8 @@ const cs = {
       },
       {
         name: "Premium",
-        description: "Rozsáhlejší weby a projekty na míru",
+        description: "Když web musí umět víc: rezervace, platby nebo klientskou sekci",
+        price: "50 000 Kč",
         features: [
           "Rezervace, e-shop nebo klientská sekce",
           "Online platby",
@@ -243,11 +248,11 @@ const cs = {
     items: [
       {
         q: "Jak dlouho trvá vytvoření webu?",
-        a: "Většina webů je hotová a online na vaší doméně do 2–3 týdnů. Záleží hlavně na rozsahu a požadavcích — větší projekty jako e-shopy trvají déle. Odhad dostanete hned s nabídkou.",
+        a: "Většina webů je online na vaší doméně do 2–3 týdnů. Větší projekty, třeba e-shopy, trvají déle. Odhad termínu dostanete spolu s nabídkou.",
       },
       {
         q: "Kolik web stojí?",
-        a: "Každý projekt naceňujeme individuálně podle rozsahu a funkcí. Po úvodním hovoru vám pošleme konkrétní nabídku, ve které uvidíte, za co platíte.",
+        a: "Jednostránkový web začíná zhruba na 10 000 Kč, web s více stránkami na 20 000 Kč a weby s rezervacemi nebo platbami na 50 000 Kč. Přesnou cenu vám pošleme v nabídce, jakmile si ujasníme, co má web umět.",
       },
       {
         q: "Budu si moct web sám upravovat?",
@@ -255,7 +260,7 @@ const cs = {
       },
       {
         q: "Používáte šablony?",
-        a: "Občas ano — záleží na klientovi, jeho představách a požadavcích. Někdy dává smysl postavit web úplně od nuly, jindy je rychlejší a levnější vyjít z kvalitního základu a upravit ho na míru.",
+        a: "Občas ano, záleží na klientovi, jeho představách a požadavcích. Někdy dává smysl postavit web úplně od nuly, jindy je rychlejší a levnější vyjít z kvalitního základu a upravit ho na míru.",
       },
       {
         q: "Co když už web mám?",
@@ -264,8 +269,8 @@ const cs = {
     ],
   },
   contact: {
-    title: "Pojďme vytvořit něco",
-    titleAccent: "výjimečného.",
+    title: "Chystáte nový web?",
+    titleAccent: "Napište nám.",
     sub: "Napište nám pár vět o projektu. Odpovíme vám e-mailem co nejdřív a pošleme konkrétní další kroky.",
     emailNote: "Komunikujeme e-mailem. Odpověď dostanete písemně, takže si ji v klidu projdete, kdy se vám to hodí.",
     name: "Jméno",
@@ -355,7 +360,7 @@ const cs = {
     },
   },
   footer: {
-    tagline: "Moderní, prémiové weby pro značky, které chtějí růst.",
+    tagline: "Weby pro živnostníky, firmy a osobní značky. Navrhneme, postavíme a postaráme se o ně.",
     navTitle: "Navigace",
     contactTitle: "Kontakt",
     legalTitle: "Právní informace",
@@ -369,9 +374,9 @@ export type Dictionary = typeof cs
 
 const en: Dictionary = {
   meta: {
-    title: "Project Two — Modern premium websites",
+    title: "Project Two — custom websites for businesses and personal brands",
     description:
-      "Project Two designs and builds modern, fast and premium websites, e-commerce and digital products that actually sell.",
+      "A small team that designs and builds websites for freelancers, businesses and personal brands. Most sites go live within 2–3 weeks.",
   },
   nav: {
     items: [
@@ -385,56 +390,56 @@ const en: Dictionary = {
     menu: "Open menu",
   },
   hero: {
-    line1: "Websites that",
-    line2: "sell",
-    line2Accent: "for you.",
-    sub: "We are Project Two — a small team that personally stands behind every project. We create modern, fast and premium websites that take your brand to the next level.",
-    primary: "Free consultation",
+    line1: "A website you'll",
+    line2Lead: "actually be",
+    line2: "proud of.",
+    sub: "We're Project Two, a small team you talk to directly. We'll design and build a website that looks good, loads fast and helps people find what they came for.",
+    primary: "Send an inquiry",
     secondary: "Our work",
     stats: [
-      { value: "Free", label: "initial consultation" },
+      { value: "Free", label: "quote and first advice" },
       { value: "2–3 weeks", label: "and your site is live" },
-      { value: "Mobile first", label: "flawless on phones" },
+      { value: "Phone", label: "comes first, that's where most visitors are" },
     ],
   },
   services: {
-    title: "Everything a great website needs",
-    sub: "From strategy and design to development, launch and long-term care. One team, zero compromises.",
+    title: "What we'll do for you",
+    sub: "From the first draft through launch to looking after the site. All in one place, so you don't have to find a designer, a developer and an admin separately.",
     design: {
-      title: "Web design & UI/UX",
-      text: "Unique design tailored to your brand. No templates — every pixel has a purpose.",
+      title: "Custom design",
+      text: "We design around your brand and the people the site is for. Not around whatever is trendy right now.",
     },
     dev: {
       title: "Custom features",
       text: "Bookings, enquiry forms, a simple shop or connections to the tools you already use.",
     },
     speed: {
-      title: "Blazing performance",
-      text: "Optimised to the last millisecond. A fast site means better SEO and conversions.",
+      title: "Fast loading",
+      text: "The site loads quickly even on a weak signal. People stay, and Google notices too.",
       label: "performance",
     },
     responsive: {
       title: "On phone and desktop",
-      text: "Your site looks and works great on phones, tablets and large screens.",
+      text: "The site looks and works just as well on a phone, a tablet or a big monitor.",
     },
     seo: {
-      title: "SEO & analytics",
-      text: "Technical SEO, tracking and the data that makes your site grow.",
+      title: "SEO and analytics",
+      text: "We make sure Google can find you and set up analytics so you know what works.",
     },
     motion: {
-      title: "Motion & interaction",
-      text: "Subtle motion design that feels premium and guides attention.",
+      title: "Animation",
+      text: "Subtle motion where it helps: it points to what matters and makes the site feel alive.",
     },
     care: {
-      title: "Care & support",
-      text: "Hosting, backups, updates and small changes. We look after your site after launch too.",
+      title: "Care after launch",
+      text: "Hosting, backups, updates and small changes. When you need something changed, just drop us a line.",
       status: "All systems go",
       bookingDate: "Fri 14 Nov",
     },
   },
   work: {
     title: "Our work",
-    sub: "Websites we launched recently.",
+    sub: "A few websites we've launched that are already up and running.",
     items: [
       {
         name: "ALDA — Aleš Javorský",
@@ -466,6 +471,7 @@ const en: Dictionary = {
     title: "Click together your style",
     sub: "You don't need to know how to describe the website you want. Try colours, fonts and shapes and see right away how it could look. Send us the finished design with one click.",
     brandLabel: "Brand name",
+    tabs: ["Colours", "Type", "Shapes", "Layout"],
     brandPlaceholder: "Your brand",
     background: { label: "Background", options: ["Light", "Warm", "Dark", "Colourful"] },
     accent: { label: "Main colour", custom: "Custom colour" },
@@ -479,7 +485,7 @@ const en: Dictionary = {
     hint: "We'll attach the design to your inquiry. No obligation, we fine-tune the final look together.",
     preview: {
       nav: ["Services", "About", "Contact"],
-      headline: "A website that speaks for you.",
+      headline: "Your main headline goes here.",
       text: "A few sentences about what you do and why people should choose you go here.",
       primary: "Contact us",
       secondary: "About us",
@@ -523,42 +529,45 @@ const en: Dictionary = {
     ],
   },
   process: {
-    title: "A clear path, no surprises",
-    sub: "You always know what is happening. We share progress continuously and refine it together with you.",
+    title: "How it works",
+    sub: "No complicated methodology. Four steps, and at each one you know where we are.",
     steps: [
       {
-        title: "Intro call",
-        text: "We talk through what you need, who the site is for and what it should achieve. Free and no strings attached.",
+        title: "Inquiry",
+        text: "You tell us what you need. We'll ask a few questions by e-mail, or give you a call if you prefer.",
       },
       {
         title: "Proposal & quote",
-        text: "We prepare the site structure, visual direction and a clear quote with no hidden items.",
+        text: "We send you the site structure, visual direction and price. No hidden items, no small print.",
       },
       {
-        title: "Building the site",
-        text: "We build the site, show you progress along the way and work in your feedback.",
+        title: "Building",
+        text: "We build the site and keep sending you previews. Anything you don't like, we change.",
       },
       {
-        title: "Launch & support",
-        text: "We launch on your domain, set up analytics and stay available afterwards.",
+        title: "Launch",
+        text: "We launch on your domain, show you how to edit the site and stay around afterwards.",
       },
     ],
   },
   pricing: {
     title: "Packages",
-    sub: "We price every project individually based on scope. You'll get a concrete quote after the intro call — free and with no obligation.",
+    sub: "Prices are indicative so you know what to expect. We'll send the exact amount in a quote based on what the site needs to do.",
+    from: "from",
     tabs: { web: "Website", care: "Care" },
     popular: "Most popular",
     web: [
       {
         name: "Start",
         description: "For freelancers, new brands and simple presentations",
+        price: "CZK 10,000",
         features: ["One-page website", "Custom design", "Optimised for mobile", "Contact form", "Basic SEO", "Launch on your domain"],
         cta: "Choose Start",
       },
       {
         name: "Business",
-        description: "For companies ready to grow online",
+        description: "For businesses that need more pages and want to manage content themselves",
+        price: "CZK 20,000",
         features: [
           "Multi-page website",
           "Design proposal for approval",
@@ -572,7 +581,8 @@ const en: Dictionary = {
       },
       {
         name: "Premium",
-        description: "Larger websites and bespoke projects",
+        description: "When the site needs to do more: bookings, payments or a client area",
+        price: "CZK 50,000",
         features: [
           "Bookings, a shop or a client area",
           "Online payments",
@@ -610,11 +620,11 @@ const en: Dictionary = {
     items: [
       {
         q: "How long does it take to build a website?",
-        a: "Most websites are finished and live on your domain within 2–3 weeks. It mainly depends on scope and requirements — larger projects like e-shops take longer. You'll get an estimate together with the quote.",
+        a: "Most websites are live on your domain within 2–3 weeks. Larger projects, such as e-shops, take longer. You'll get a time estimate together with the quote.",
       },
       {
         q: "How much does a website cost?",
-        a: "We price every project individually based on scope and features. After the intro call we'll send you a concrete quote so you can see exactly what you're paying for.",
+        a: "A one-page site starts at roughly CZK 10,000, a multi-page site at CZK 20,000 and sites with bookings or payments at CZK 50,000. We'll send the exact price in a quote once we know what the site needs to do.",
       },
       {
         q: "Will I be able to edit the website myself?",
@@ -622,7 +632,7 @@ const en: Dictionary = {
       },
       {
         q: "Do you use templates?",
-        a: "Sometimes — it depends on the client, their vision and requirements. Sometimes it makes sense to build from scratch, other times it's faster and cheaper to start from a quality base and tailor it.",
+        a: "Sometimes. It depends on the client, their vision and requirements. Sometimes it makes sense to build from scratch, other times it's faster and cheaper to start from a quality base and tailor it.",
       },
       {
         q: "What if I already have a website?",
@@ -631,8 +641,8 @@ const en: Dictionary = {
     ],
   },
   contact: {
-    title: "Let's build something",
-    titleAccent: "exceptional.",
+    title: "Planning a new website?",
+    titleAccent: "Drop us a line.",
     sub: "Tell us a few sentences about your project. We'll reply by e-mail as soon as possible with concrete next steps.",
     emailNote: "We communicate by e-mail. You'll get our reply in writing, so you can go through it whenever it suits you.",
     name: "Name",
@@ -722,7 +732,7 @@ const en: Dictionary = {
     },
   },
   footer: {
-    tagline: "Modern, premium websites for brands that want to grow.",
+    tagline: "Websites for freelancers, businesses and personal brands. We design them, build them and look after them.",
     navTitle: "Navigation",
     contactTitle: "Contact",
     legalTitle: "Legal",

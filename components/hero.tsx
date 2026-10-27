@@ -40,8 +40,9 @@ export function Hero() {
           </span>
           <span className="block overflow-hidden pb-7 -mb-4">
             <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={1}>
+              <span className="text-zinc-500">{t.hero.line2Lead}</span>{" "}
               <span className="relative inline-block text-ember">
-                {t.hero.line2}
+                {t.hero.line2.replace(/\.$/, "")}
                 {/* Thin underline that draws in and fades out to the right */}
                 <motion.span
                   aria-hidden="true"
@@ -50,8 +51,8 @@ export function Hero() {
                   animate={{ scaleX: 1, opacity: 1 }}
                   transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 />
-              </span>{" "}
-              <span className="text-zinc-500">{t.hero.line2Accent}</span>
+              </span>
+              {t.hero.line2.endsWith(".") && <span className="text-ember">.</span>}
             </motion.span>
           </span>
         </h1>

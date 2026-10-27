@@ -88,6 +88,12 @@ export function Pricing() {
                   <div className={cn("mb-6 pb-6 border-b", highlighted ? "border-ember/30" : "border-zinc-800")}>
                     <h3 className={cn("font-display text-3xl font-semibold tracking-tight mb-2", highlighted ? "text-ember" : "text-white")}>{plan.name}</h3>
                     <p className="text-zinc-400 text-sm leading-relaxed">{plan.description}</p>
+                    {"price" in plan && (
+                      <p className="mt-5 flex items-baseline gap-1.5">
+                        <span className="text-sm text-zinc-500">{t.pricing.from}</span>
+                        <span className="font-display text-2xl font-semibold tracking-tight text-white">{plan.price}</span>
+                      </p>
+                    )}
                   </div>
 
                   <ul className="space-y-3 mb-8">
