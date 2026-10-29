@@ -49,11 +49,6 @@ export function Footer() {
                   Instagram
                 </a>
               </li>
-              <li>
-                <a href="/#kontakt" className={linkClass}>
-                  {t.nav.cta}
-                </a>
-              </li>
             </ul>
           </div>
 
