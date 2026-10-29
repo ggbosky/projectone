@@ -16,12 +16,13 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin", "latin-ext"], preload: f
 const anton = Anton({ subsets: ["latin", "latin-ext"], weight: "400", preload: false, display: "swap" })
 const nunito = Nunito({ subsets: ["latin", "latin-ext"], preload: false, display: "swap" })
 
-const mona = "var(--font-mona), sans-serif"
+const interTight = '"Inter Tight", sans-serif'
+const inter = '"Inter", sans-serif'
 
 // Typeface pairings, in the order of t.styles.font.options.
 const fonts: { name: string; heading: CSSProperties; body: string }[] = [
-  { name: "Mona Sans", heading: { fontFamily: mona, fontWeight: 600, letterSpacing: "-0.035em" }, body: mona },
-  { name: "Playfair Display", heading: { fontFamily: playfair.style.fontFamily, fontWeight: 500, letterSpacing: "-0.01em" }, body: mona },
+  { name: "Inter Tight", heading: { fontFamily: interTight, fontWeight: 600, letterSpacing: "-0.035em" }, body: inter },
+  { name: "Playfair Display", heading: { fontFamily: playfair.style.fontFamily, fontWeight: 500, letterSpacing: "-0.01em" }, body: inter },
   {
     name: "Space Grotesk",
     heading: { fontFamily: spaceGrotesk.style.fontFamily, fontWeight: 600, letterSpacing: "-0.04em" },
@@ -30,7 +31,7 @@ const fonts: { name: string; heading: CSSProperties; body: string }[] = [
   {
     name: "Anton",
     heading: { fontFamily: anton.style.fontFamily, textTransform: "uppercase", letterSpacing: "0", lineHeight: 0.95 },
-    body: mona,
+    body: inter,
   },
   { name: "Nunito", heading: { fontFamily: nunito.style.fontFamily, fontWeight: 800, letterSpacing: "-0.02em" }, body: nunito.style.fontFamily },
 ]

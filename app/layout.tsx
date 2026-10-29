@@ -1,16 +1,11 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Mona_Sans } from "next/font/google"
+import { preload } from "react-dom"
 import { dictionaries } from "@/lib/dictionary"
 import "./globals.css"
 
-// One variable family: normal width for text, expanded width for headings.
-const monaSans = Mona_Sans({
-  subsets: ["latin", "latin-ext"],
-  axes: ["wdth"],
-  variable: "--font-mona",
-  display: "swap",
-})
+// Brand fonts are self-hosted in /public/fonts (declared in globals.css); warm up the ones above the fold.
+const criticalFonts = ["inter-tight-latin-600-normal", "inter-tight-latin-ext-600-normal", "inter-latin-400-normal"]
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://projectwo.com"),
@@ -33,10 +28,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  for (const name of criticalFonts) {
+    preload(`/fonts/${name}.woff2`, { as: "font", type: "font/woff2", crossOrigin: "anonymous" })
+  }
+
   return (
     <html lang="cs" className="dark">
       <body
-        className={`${monaSans.variable} font-sans antialiased`}
+        className="font-sans antialiased"
       >
         <div className="noise-overlay" aria-hidden="true" />
         {children}

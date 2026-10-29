@@ -71,7 +71,7 @@ export function Footer() {
         {/* Oversized wordmark */}
         <div
           aria-hidden="true"
-          className="mt-16 font-display font-semibold tracking-tighter leading-none text-[22vw] md:text-[13.5rem] text-center bg-gradient-to-b from-zinc-800 to-zinc-950 bg-clip-text text-transparent select-none"
+          className="mt-16 font-display font-semibold tracking-tight leading-none text-[22vw] md:text-[13.5rem] text-center bg-gradient-to-b from-zinc-800 to-zinc-950 bg-clip-text text-transparent select-none"
         >
           Project Two
         </div>

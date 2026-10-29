@@ -32,7 +32,7 @@ export function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto text-center">
 
         {/* Headline */}
-        <h1 key={locale} className="font-display text-[2.75rem] leading-[1.02] sm:text-7xl lg:text-8xl font-semibold tracking-tighter text-white mb-7">
+        <h1 key={locale} className="font-display text-[2.75rem] leading-[1.02] sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-7">
           <span className="block overflow-hidden pb-1">
             <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={0}>
               {t.hero.line1}
@@ -41,7 +41,7 @@ export function Hero() {
           <span className="block overflow-hidden pb-7 -mb-4">
             <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={1}>
               <span className="text-zinc-500">{t.hero.line2Lead}</span>{" "}
-              <span className="relative inline-block text-ember">
+              <span className="relative inline-block font-accent text-ember">
                 {t.hero.line2.replace(/\.$/, "")}
                 {/* Thin underline that draws in and fades out to the right */}
                 <motion.span
@@ -52,7 +52,7 @@ export function Hero() {
                   transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 />
               </span>
-              {t.hero.line2.endsWith(".") && <span className="text-ember">.</span>}
+              {t.hero.line2.endsWith(".") && <span className="font-accent text-ember">.</span>}
             </motion.span>
           </span>
         </h1>
