@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowUp } from "lucide-react"
+import { ArrowUp, Instagram } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { site } from "@/lib/site"
 import { Logo } from "@/components/logo"
@@ -41,6 +41,12 @@ export function Footer() {
               <li>
                 <a href={`mailto:${site.email}`} className={`${linkClass} break-all`}>
                   {site.email}
+                </a>
+              </li>
+              <li>
+                <a href={site.instagram.url} target="_blank" rel="noopener" className={`${linkClass} flex w-fit items-center gap-2 leading-none`}>
+                  <Instagram className="w-4 h-4" />
+                  Instagram
                 </a>
               </li>
               <li>

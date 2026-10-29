@@ -3,6 +3,7 @@ export const site = {
   name: "Project Two",
   email: "projectwo@seznam.cz",
   domain: "projectwo.com",
+  instagram: { url: "https://www.instagram.com/projectwoofficial/", handle: "@projectwoofficial" },
   operator: {
     name: "Karel Drexler",
     ico: "24881317",
