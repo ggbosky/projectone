@@ -63,7 +63,7 @@ function DesignCanvas() {
 
   return (
     <div ref={ref} className="relative h-48 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4 overflow-hidden">
-      <div className="absolute top-3 right-3 flex gap-1 p-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] font-mono">
+      <div className="absolute top-3 right-3 flex gap-1 p-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] tabular-nums">
         <span className={cn("px-2 py-0.5 rounded-full transition-colors", !final ? "bg-zinc-700 text-white" : "text-zinc-500")}>
           wireframe
         </span>
@@ -303,7 +303,7 @@ function UptimeBars({ status }: { status: string }) {
           <span className="w-2 h-2 rounded-full bg-emerald-500 text-emerald-500 pulse-glow" />
           {status}
         </span>
-        <span className="font-mono text-zinc-500">99.99% uptime</span>
+        <span className="tabular-nums text-zinc-500">99.99% uptime</span>
       </div>
       <div className="flex gap-1">
         {bars.map((b, i) => (

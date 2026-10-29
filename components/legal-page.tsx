@@ -89,7 +89,7 @@ function LegalBody({ docs }: { docs: Record<Locale, LegalDoc> }) {
                   {sections.map((s, i) => (
                     <li key={s.id}>
                       <a href={`#${s.id}`} className="flex gap-3 text-zinc-500 hover:text-white transition-colors">
-                        <span className="font-mono text-zinc-600 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="text-zinc-600 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
                         {s.title}
                       </a>
                     </li>
@@ -116,7 +116,7 @@ function LegalBody({ docs }: { docs: Record<Locale, LegalDoc> }) {
                 {sections.map((s, i) => (
                   <section key={s.id} id={s.id} className="scroll-mt-28">
                     <h2 className="flex items-baseline gap-4 font-display text-2xl font-semibold tracking-tight text-white mb-5">
-                      <span className="font-mono text-sm text-ember tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-sm text-ember tabular-nums">{String(i + 1).padStart(2, "0")}</span>
                       {s.title}
                     </h2>
                     <div className="legal-prose">{s.content}</div>

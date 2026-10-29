@@ -33,7 +33,7 @@ export function Work() {
                     <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                     <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                   </span>
-                  <span className="mx-auto px-3 py-1 rounded-md bg-zinc-800/70 text-[11px] text-zinc-400 font-mono">
+                  <span className="mx-auto px-3 py-1 rounded-md bg-zinc-800/70 text-[11px] text-zinc-400">
                     {item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
                   </span>
                   <span className="w-12" />

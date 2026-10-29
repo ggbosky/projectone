@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, type CSSProperties, type ReactNode } from "react"
-import { Anton, Nunito, Playfair_Display, Space_Grotesk } from "next/font/google"
 import { ArrowRight, Monitor, RotateCcw, Shuffle, Smartphone } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { SectionHeading } from "@/components/section-heading"
@@ -11,29 +10,23 @@ import { cn } from "@/lib/utils"
 /** Fired with a text summary of the design; the contact form attaches it to the inquiry. */
 export const STYLE_EVENT = "p2:style"
 
-const playfair = Playfair_Display({ subsets: ["latin", "latin-ext"], preload: false, display: "swap" })
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin", "latin-ext"], preload: false, display: "swap" })
-const anton = Anton({ subsets: ["latin", "latin-ext"], weight: "400", preload: false, display: "swap" })
-const nunito = Nunito({ subsets: ["latin", "latin-ext"], preload: false, display: "swap" })
-
 const interTight = '"Inter Tight", sans-serif'
 const inter = '"Inter", sans-serif'
 
-// Typeface pairings, in the order of t.styles.font.options.
+// Typeface pairings built only from the brand fonts, in the order of t.styles.font.options.
 const fonts: { name: string; heading: CSSProperties; body: string }[] = [
   { name: "Inter Tight", heading: { fontFamily: interTight, fontWeight: 600, letterSpacing: "-0.035em" }, body: inter },
-  { name: "Playfair Display", heading: { fontFamily: playfair.style.fontFamily, fontWeight: 500, letterSpacing: "-0.01em" }, body: inter },
   {
-    name: "Space Grotesk",
-    heading: { fontFamily: spaceGrotesk.style.fontFamily, fontWeight: 600, letterSpacing: "-0.04em" },
-    body: spaceGrotesk.style.fontFamily,
-  },
-  {
-    name: "Anton",
-    heading: { fontFamily: anton.style.fontFamily, textTransform: "uppercase", letterSpacing: "0", lineHeight: 0.95 },
+    name: "Instrument Serif",
+    heading: { fontFamily: '"Instrument Serif", serif', fontStyle: "italic", fontWeight: 400, letterSpacing: "-0.01em" },
     body: inter,
   },
-  { name: "Nunito", heading: { fontFamily: nunito.style.fontFamily, fontWeight: 800, letterSpacing: "-0.02em" }, body: nunito.style.fontFamily },
+  {
+    name: "Inter Tight",
+    heading: { fontFamily: interTight, fontWeight: 600, textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 0.95 },
+    body: inter,
+  },
+  { name: "Inter", heading: { fontFamily: inter, fontWeight: 500, letterSpacing: "-0.02em" }, body: inter },
 ]
 
 const accents = ["#ff590e", "#dc2626", "#db2777", "#7c3aed", "#2563eb", "#0891b2", "#1f8a78", "#16a34a", "#5f7553", "#b8892b", "#18181b"]

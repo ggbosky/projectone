@@ -35,7 +35,7 @@ export function Process() {
                 transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="relative pl-20 lg:pl-0"
               >
-                <div className="absolute left-0 top-0 lg:static w-12 h-12 rounded-full bg-zinc-950 border border-zinc-700 flex items-center justify-center font-mono text-sm text-white lg:mb-8">
+                <div className="absolute left-0 top-0 lg:static w-12 h-12 rounded-full bg-zinc-950 border border-zinc-700 flex items-center justify-center tabular-nums text-sm text-white lg:mb-8">
                   0{index + 1}
                 </div>
                 <div className="lg:pr-4">

@@ -174,7 +174,7 @@ function drawSketch(ctx: CanvasRenderingContext2D, s: Sketch, now: number) {
       for (const [hx, hy] of corners) ctx.fillRect(hx - 2.5, hy - 2.5, 5, 5)
       // Dimension label
       const label = `${Math.round(target.w * 4)} × ${Math.round(target.h * 4)}`
-      ctx.font = "10px ui-monospace, SFMono-Regular, Menlo, monospace"
+      ctx.font = '500 10px "Inter", sans-serif'
       const lw = ctx.measureText(label).width + 10
       const lx = target.x + target.w / 2 - lw / 2
       const ly = target.y + target.h + m + 6
