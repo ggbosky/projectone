@@ -559,14 +559,14 @@ const en: Dictionary = {
       {
         name: "Start",
         description: "For freelancers, new brands and simple presentations",
-        price: "CZK 10,000",
+        price: "$500",
         features: ["One-page website", "Custom design", "Optimised for mobile", "Contact form", "Basic SEO", "Launch on your domain"],
         cta: "Choose Start",
       },
       {
         name: "Business",
         description: "For businesses that need more pages and want to manage content themselves",
-        price: "CZK 20,000",
+        price: "$1,000",
         features: [
           "Multi-page website",
           "Design proposal for approval",
@@ -580,7 +580,7 @@ const en: Dictionary = {
       {
         name: "Premium",
         description: "When the site needs to do more: bookings, payments or a client area",
-        price: "CZK 50,000",
+        price: "$2,500",
         features: [
           "Bookings, a shop or a client area",
           "Online payments",
@@ -622,7 +622,7 @@ const en: Dictionary = {
       },
       {
         q: "How much does a website cost?",
-        a: "A one-page site starts at roughly CZK 10,000, a multi-page site at CZK 20,000 and sites with bookings or payments at CZK 50,000. We'll send the exact price in a quote once we know what the site needs to do.",
+        a: "A one-page site starts at roughly $500, a multi-page site at $1,000 and sites with bookings or payments at $2,500. We'll send the exact price in a quote once we know what the site needs to do.",
       },
       {
         q: "Will I be able to edit the website myself?",
@@ -649,7 +649,7 @@ const en: Dictionary = {
     type: "What are you interested in?",
     types: ["New website", "Redesign", "E-shop", "Web app", "Website care"],
     budget: "Estimated budget",
-    budgets: ["10–20k CZK", "20–50k CZK", "50–80k CZK", "80k CZK +"],
+    budgets: ["$500–1,000", "$1,000–2,500", "$2,500–4,000", "$4,000 +"],
     message: "Tell us about your project",
     send: "Send enquiry",
     sentTitle: "Thanks, got it!",
