@@ -21,10 +21,9 @@ export function Hero() {
   const { t, locale } = useI18n()
 
   return (
-    <section id="top" className="relative flex flex-col items-center px-4 pt-40 sm:pt-52 pb-28 sm:pb-36 overflow-hidden">
-      <div className="absolute inset-0 bg-grid pointer-events-none" />
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-ember/20 blur-[120px] pointer-events-none" />
-      <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-violet-500/10 blur-[120px] pointer-events-none" />
+    <section id="top" className="relative flex flex-col items-center px-4 pt-36 sm:pt-48 pb-20 sm:pb-28 overflow-hidden">
+      {/* One soft light from above, nothing else */}
+      <div className="absolute -top-72 left-1/2 -translate-x-1/2 w-[1100px] h-[620px] rounded-full bg-ember/[0.13] blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
 
@@ -37,7 +36,6 @@ export function Hero() {
           </span>
           <span className="block overflow-hidden pb-7 -mb-4">
             <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={1}>
-              <span className="text-zinc-500">{t.hero.line2Lead}</span>{" "}
               <span className="relative inline-block text-ember">
                 {t.hero.line2.replace(/\.$/, "")}
                 {/* Thin underline that draws in and fades out to the right */}
@@ -59,7 +57,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-balance"
+          className="text-lg sm:text-xl text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed text-balance"
         >
           {t.hero.sub}
         </motion.p>
@@ -69,7 +67,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-5"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6"
         >
           <ButtonLink href="#kontakt" className="w-full sm:w-auto px-8 h-12 text-base">
             {t.hero.primary}
@@ -80,21 +78,32 @@ export function Hero() {
           </ButtonLink>
         </motion.div>
 
-        <motion.p
+        {/* Real clients, real faces */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="text-sm text-zinc-500 mb-14"
+          className="mt-3 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          {t.hero.note}
-        </motion.p>
+          <span className="flex -space-x-2.5">
+            {t.reviews.items.map((r) => (
+              <img
+                key={r.name}
+                src={r.photo}
+                alt={r.name}
+                className="w-9 h-9 rounded-full object-cover object-top ring-2 ring-zinc-950 bg-white"
+              />
+            ))}
+          </span>
+          <span className="text-sm text-zinc-400 text-balance">{t.hero.note}</span>
+        </motion.div>
 
         {/* Stats */}
         <motion.dl
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.75 }}
-          className="grid grid-cols-3 max-w-2xl mx-auto divide-x divide-zinc-800"
+          className="mt-16 sm:mt-20 pt-8 border-t border-zinc-800/80 grid grid-cols-3 max-w-2xl mx-auto divide-x divide-zinc-800"
         >
           {t.hero.stats.map((s) => (
             <div key={s.label} className="px-2 sm:px-6">

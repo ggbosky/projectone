@@ -18,12 +18,11 @@ const cs = {
     menu: "Otevřít menu",
   },
   hero: {
-    line1: "Nový web",
-    line2Lead: "online",
+    line1: "Nový web online",
     line2: "do tří týdnů.",
     sub: "Navrhneme ho, postavíme a spustíme na vaší doméně. Vy jen schvalujete.",
     primary: "Chci nabídku",
-    note: "Finelia, Boží kytky, ALDA a Karel Drexler už jedou. Váš může být další.",
+    note: "Finelia, Boží kytky, ALDA a Karel Drexler už web od nás mají.",
     secondary: "Naše práce",
     stats: [
       { value: "Zdarma", label: "nabídka a první rada" },
@@ -383,12 +382,11 @@ const en: Dictionary = {
     menu: "Open menu",
   },
   hero: {
-    line1: "A new website,",
-    line2Lead: "live within",
-    line2: "three weeks.",
+    line1: "A new website, live",
+    line2: "within three weeks.",
     sub: "We design it, build it and launch it on your domain. You just approve.",
     primary: "Get a quote",
-    note: "Finelia, Boží kytky, ALDA and Karel Drexler are already live. Yours could be next.",
+    note: "Finelia, Boží kytky, ALDA and Karel Drexler already have a website from us.",
     secondary: "Our work",
     stats: [
       { value: "Free", label: "quote and first advice" },
