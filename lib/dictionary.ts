@@ -18,11 +18,12 @@ const cs = {
     menu: "Otevřít menu",
   },
   hero: {
-    line1: "Váš nový web",
+    line1: "Nový web",
     line2Lead: "online",
     line2: "do tří týdnů.",
-    sub: "Jsme Project Two, malý tým, se kterým mluvíte napřímo. Navrhneme a postavíme vám web, který dobře vypadá, rychle se načte a lidé na něm hned najdou, co hledají.",
-    primary: "Napsat poptávku",
+    sub: "Navrhneme ho, postavíme a spustíme na vaší doméně. Vy jen schvalujete.",
+    primary: "Chci nabídku",
+    note: "Weby od 10 000 Kč. Finelia, Boží kytky a další už jedou.",
     secondary: "Naše práce",
     stats: [
       { value: "Zdarma", label: "nabídka i první rada" },
@@ -389,11 +390,12 @@ const en: Dictionary = {
     menu: "Open menu",
   },
   hero: {
-    line1: "Your new website,",
+    line1: "A new website,",
     line2Lead: "live within",
     line2: "three weeks.",
-    sub: "We're Project Two, a small team you talk to directly. We'll design and build a website that looks good, loads fast and helps people find what they came for.",
-    primary: "Send an inquiry",
+    sub: "We design it, build it and launch it on your domain. You just approve.",
+    primary: "Get a quote",
+    note: "Websites from $500. Finelia, Boží kytky and others are already live.",
     secondary: "Our work",
     stats: [
       { value: "Free", label: "quote and first advice" },

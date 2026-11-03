@@ -59,7 +59,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-pretty"
+          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-balance"
         >
           {t.hero.sub}
         </motion.p>
@@ -69,7 +69,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-14"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-5"
         >
           <ButtonLink href="#kontakt" className="w-full sm:w-auto px-8 h-12 text-base">
             {t.hero.primary}
@@ -79,6 +79,15 @@ export function Hero() {
             {t.hero.secondary}
           </ButtonLink>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="text-sm text-zinc-500 mb-14"
+        >
+          {t.hero.note}
+        </motion.p>
 
         {/* Stats */}
         <motion.dl
