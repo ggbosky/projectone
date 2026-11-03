@@ -1,103 +1,146 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { ButtonLink } from "@/components/button-link"
-import { HeroSketch } from "@/components/hero-sketch"
+import { cn } from "@/lib/utils"
 
-const textRevealVariants = {
-  hidden: { y: "110%" },
-  visible: (i: number) => ({
-    y: 0,
-    transition: {
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1] as const,
-      delay: 0.1 + i * 0.12,
-    },
-  }),
-}
+const ease = [0.22, 1, 0.36, 1] as const
+const SLIDE_MS = 4500
+
+const host = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")
 
 export function Hero() {
   const { t, locale } = useI18n()
+  const projects = t.work.items
+  const [active, setActive] = useState(0)
+  const [paused, setPaused] = useState(false)
+
+  // Cycle through the real projects unless the visitor is hovering the preview.
+  useEffect(() => {
+    if (paused) return
+    const id = setTimeout(() => setActive((i) => (i + 1) % projects.length), SLIDE_MS)
+    return () => clearTimeout(id)
+  }, [active, paused, projects.length])
+
+  const project = projects[active]
 
   return (
-    <section id="top" className="relative flex flex-col items-center px-4 pt-40 sm:pt-52 pb-28 sm:pb-36 overflow-hidden">
-      {/* Background: wireframes sketching themselves under the grid */}
-      <HeroSketch className="hidden md:block absolute inset-x-0 top-0 w-full h-[1000px] opacity-30 pointer-events-none [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
-      <div className="absolute inset-0 bg-grid pointer-events-none" />
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-ember/20 blur-[120px] pointer-events-none" />
-      <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-violet-500/10 blur-[120px] pointer-events-none" />
+    <section id="top" className="px-4 pt-32 sm:pt-40 lg:pt-44 pb-20 sm:pb-28">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-14 lg:gap-16 items-center">
+        {/* Copy */}
+        <div key={locale}>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease }}
+            className="font-display text-[2.6rem] leading-[1.04] sm:text-6xl lg:text-[4.25rem] font-semibold tracking-tight text-white text-balance"
+          >
+            {t.hero.line1} <span className="font-accent text-ember whitespace-nowrap">{t.hero.line2}</span>
+          </motion.h1>
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease }}
+            className="mt-7 text-lg text-zinc-400 max-w-xl leading-relaxed text-pretty"
+          >
+            {t.hero.sub}
+          </motion.p>
 
-        {/* Headline */}
-        <h1 key={locale} className="font-display text-[2.75rem] leading-[1.02] sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-7">
-          <span className="block overflow-hidden pb-1">
-            <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={0}>
-              {t.hero.line1}
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden pb-7 -mb-4">
-            <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={1}>
-              <span className="text-zinc-500">{t.hero.line2Lead}</span>{" "}
-              <span className="relative inline-block font-accent text-ember">
-                {t.hero.line2.replace(/\.$/, "")}
-                {/* Thin underline that draws in and fades out to the right */}
-                <motion.span
-                  aria-hidden="true"
-                  className="absolute left-[0.04em] right-0 -bottom-[0.16em] h-[0.04em] rounded-full bg-gradient-to-r from-ember via-ember/60 to-transparent origin-left"
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  animate={{ scaleX: 1, opacity: 1 }}
-                  transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </span>
-              {t.hero.line2.endsWith(".") && <span className="font-accent text-ember">.</span>}
-            </motion.span>
-          </span>
-        </h1>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25, ease }}
+            className="mt-9 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6"
+          >
+            <ButtonLink href="#kontakt" className="w-full sm:w-auto px-7 h-12 text-base">
+              {t.hero.primary}
+              <ArrowRight className="w-4 h-4" />
+            </ButtonLink>
+            <a
+              href="#prace"
+              className="self-center sm:self-auto text-zinc-300 underline underline-offset-[6px] decoration-zinc-700 hover:text-white hover:decoration-ember transition-colors"
+            >
+              {t.hero.secondary}
+            </a>
+          </motion.div>
 
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          {/* Real clients instead of made-up numbers */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-12 pt-6 border-t border-zinc-800/80"
+          >
+            <p className="text-sm text-zinc-500 mb-3">{t.hero.proof}</p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {projects.map((p, i) => (
+                <li key={p.url}>
+                  <button
+                    type="button"
+                    onClick={() => setActive(i)}
+                    className={cn(
+                      "text-sm transition-colors",
+                      i === active ? "text-white" : "text-zinc-500 hover:text-zinc-300",
+                    )}
+                  >
+                    {host(p.url)}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+
+        {/* Live preview of the projects */}
+        <motion.a
+          href={project.url}
+          target="_blank"
+          rel="noopener"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-pretty"
+          transition={{ duration: 0.9, delay: 0.2, ease }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          className="group block rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/60"
+          aria-label={project.name}
         >
-          {t.hero.sub}
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-14"
-        >
-          <ButtonLink href="#kontakt" className="w-full sm:w-auto px-8 h-12 text-base">
-            {t.hero.primary}
-            <ArrowRight className="w-4 h-4" />
-          </ButtonLink>
-          <ButtonLink href="#prace" variant="outline" className="w-full sm:w-auto px-8 h-12 text-base">
-            {t.hero.secondary}
-          </ButtonLink>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.dl
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.75 }}
-          className="grid grid-cols-3 max-w-2xl mx-auto divide-x divide-zinc-800"
-        >
-          {t.hero.stats.map((s) => (
-            <div key={s.label} className="px-2 sm:px-6">
-              <dt className="sr-only">{s.label}</dt>
-              <dd className="font-display text-base sm:text-2xl font-semibold text-white tracking-tight">{s.value}</dd>
-              <dd className="text-xs sm:text-sm text-zinc-500 mt-1">{s.label}</dd>
-            </div>
-          ))}
-        </motion.dl>
+          <div className="flex items-center gap-1.5 px-4 py-3 border-b border-zinc-800">
+            <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+            <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+            <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
+            <span className="ml-3 flex-1 min-w-0 px-3 py-1 rounded-md bg-zinc-800/70 text-[11px] text-zinc-400 truncate">
+              {host(project.url)}
+            </span>
+          </div>
+          <div className="relative aspect-[16/10] bg-zinc-950">
+            <AnimatePresence initial={false}>
+              <motion.img
+                key={project.image}
+                src={project.image}
+                alt={project.name}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+            </AnimatePresence>
+          </div>
+          {/* Progress of the slideshow */}
+          <div className="h-0.5 bg-zinc-800">
+            <motion.div
+              key={`${active}-${paused}`}
+              className="h-full bg-ember origin-left"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: paused ? 0 : 1 }}
+              transition={{ duration: paused ? 0 : SLIDE_MS / 1000, ease: "linear" }}
+            />
+          </div>
+        </motion.a>
       </div>
     </section>
   )

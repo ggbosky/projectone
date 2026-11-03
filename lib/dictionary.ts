@@ -18,17 +18,12 @@ const cs = {
     menu: "Otevřít menu",
   },
   hero: {
-    line1: "Váš nový web",
-    line2Lead: "online",
+    line1: "Váš nový web online",
     line2: "do tří týdnů.",
-    sub: "Jsme Project Two, malý tým, se kterým mluvíte napřímo. Navrhneme a postavíme vám web, který dobře vypadá, rychle se načte a lidé na něm hned najdou, co hledají.",
+    sub: "Jsme malý tým, se kterým mluvíte napřímo. Navrhneme a postavíme vám web, který dobře vypadá, rychle se načte a lidé na něm hned najdou, co hledají. Nabídku máte zdarma.",
     primary: "Napsat poptávku",
     secondary: "Naše práce",
-    stats: [
-      { value: "Zdarma", label: "nabídka i první rada" },
-      { value: "2–3 týdny", label: "a váš web je online" },
-      { value: "Telefon", label: "ladíme jako první, odtud chodí většina lidí" },
-    ],
+    proof: "Weby, které už běží",
   },
   services: {
     title: "Co pro vás uděláme",
@@ -389,17 +384,12 @@ const en: Dictionary = {
     menu: "Open menu",
   },
   hero: {
-    line1: "Your new website,",
-    line2Lead: "live within",
-    line2: "three weeks.",
-    sub: "We're Project Two, a small team you talk to directly. We'll design and build a website that looks good, loads fast and helps people find what they came for.",
+    line1: "Your new website live",
+    line2: "within three weeks.",
+    sub: "We're a small team you talk to directly. We'll design and build a website that looks good, loads fast and helps people find what they came for. The quote is free.",
     primary: "Send an inquiry",
     secondary: "Our work",
-    stats: [
-      { value: "Free", label: "quote and first advice" },
-      { value: "2–3 weeks", label: "and your site is live" },
-      { value: "Phone", label: "comes first, that's where most visitors are" },
-    ],
+    proof: "Websites already live",
   },
   services: {
     title: "What we'll do for you",
