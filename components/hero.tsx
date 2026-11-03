@@ -36,18 +36,17 @@ export function Hero() {
           </span>
           <span className="block overflow-hidden pb-7 -mb-4">
             <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={1}>
-              <span className="relative inline-block text-ember">
-                {t.hero.line2.replace(/\.$/, "")}
+              <span className="relative sm:inline-block text-ember">
+                {t.hero.line2}
                 {/* Thin underline that draws in and fades out to the right */}
                 <motion.span
                   aria-hidden="true"
-                  className="absolute left-[0.04em] right-0 -bottom-[0.16em] h-[0.04em] rounded-full bg-gradient-to-r from-ember via-ember/60 to-transparent origin-left"
+                  className="hidden sm:block absolute left-[0.04em] right-0 -bottom-[0.16em] h-[0.04em] rounded-full bg-gradient-to-r from-ember via-ember/60 to-transparent origin-left"
                   initial={{ scaleX: 0, opacity: 0 }}
                   animate={{ scaleX: 1, opacity: 1 }}
                   transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 />
               </span>
-              {t.hero.line2.endsWith(".") && <span className="text-ember">.</span>}
             </motion.span>
           </span>
         </h1>
@@ -78,12 +77,21 @@ export function Hero() {
           </ButtonLink>
         </motion.div>
 
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+          className="text-sm text-zinc-500"
+        >
+          {t.hero.micro}
+        </motion.p>
+
         {/* Real clients, real faces */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-3 flex flex-col sm:flex-row items-center justify-center gap-3"
+          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <span className="flex -space-x-2.5">
             {t.reviews.items.map((r) => (
