@@ -29,7 +29,7 @@ export function Hero() {
 
         {/* Headline */}
         <h1 key={locale} className="font-display text-[2.75rem] leading-[1.02] sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-7">
-          <span className="block overflow-hidden pb-1">
+          <span className="block overflow-hidden pt-[0.18em] -mt-[0.18em] pb-1">
             <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={0}>
               {t.hero.line1}
             </motion.span>

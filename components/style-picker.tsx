@@ -492,7 +492,7 @@ export function StylePicker() {
                 <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
                 <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
               </div>
-              <div data-lenis-prevent className="h-[300px] sm:h-[460px] lg:h-[600px] overflow-y-auto overscroll-contain">
+              <div className="h-[300px] sm:h-[460px] lg:h-[600px] overflow-y-auto overscroll-contain">
                 <Preview design={design} />
               </div>
             </div>

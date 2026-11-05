@@ -2,7 +2,6 @@
 
 import { MotionConfig } from "framer-motion"
 import { I18nProvider } from "@/lib/i18n"
-import { SmoothScroll } from "@/components/smooth-scroll"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
@@ -19,21 +18,19 @@ export default function Home() {
   return (
     <I18nProvider>
       <MotionConfig reducedMotion="user">
-        <SmoothScroll>
-          <Navbar />
-          <main className="min-h-screen bg-zinc-950">
-            <Hero />
-            <Services />
-            <Work />
-            <StylePicker />
-            <Reviews />
-            <Process />
-            <Pricing />
-            <Faq />
-            <Contact />
-          </main>
-          <Footer />
-        </SmoothScroll>
+        <Navbar />
+        <main className="min-h-screen bg-zinc-950">
+          <Hero />
+          <Services />
+          <Work />
+          <StylePicker />
+          <Reviews />
+          <Process />
+          <Pricing />
+          <Faq />
+          <Contact />
+        </main>
+        <Footer />
       </MotionConfig>
     </I18nProvider>
   )

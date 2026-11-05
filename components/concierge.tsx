@@ -253,7 +253,6 @@ export function Concierge() {
         {open && (
           <motion.div
             key="concierge"
-            data-lenis-prevent
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
