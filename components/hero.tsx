@@ -20,13 +20,13 @@ function Phone({ src, alt, url, bar, className }: { src: string; alt: string; ur
       target="_blank"
       rel="noopener"
       className={cn(
-        "block w-[168px] sm:w-[230px] lg:w-[270px] aspect-[9/19.2] rounded-[2rem] sm:rounded-[2.6rem] bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-600 p-[2px] shadow-[0_50px_90px_-30px_rgb(0_0_0/0.9),0_0_60px_-10px_oklch(0.7_0.2_40/0.35)]",
+        "block w-[47cqw] aspect-[9/19.2] rounded-[7.5cqw] bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-600 p-[2px] shadow-[0_50px_90px_-30px_rgb(0_0_0/0.9),0_0_60px_-10px_oklch(0.7_0.2_40/0.35)]",
         className,
       )}
     >
-      <div className="w-full h-full rounded-[calc(2rem-2px)] sm:rounded-[calc(2.6rem-2px)] bg-zinc-950 p-[6px] sm:p-[8px]">
+      <div className="w-full h-full rounded-[calc(7.5cqw-2px)] bg-zinc-950 p-[1.7cqw]">
       {/* Screen: status-bar strip in the site's own colour, then the site itself */}
-      <div className="relative w-full h-full rounded-[1.6rem] sm:rounded-[2.05rem] overflow-hidden" style={{ background: bar }}>
+      <div className="relative w-full h-full rounded-[5.9cqw] overflow-hidden" style={{ background: bar }}>
         <img src={src} alt={alt} className="absolute inset-x-0 bottom-0 top-[7%] w-full h-[93%] object-cover object-top" />
         <span className="absolute top-[1.6%] left-1/2 -translate-x-1/2 w-[32%] h-[3.2%] rounded-full bg-zinc-900" />
       </div>
@@ -37,10 +37,10 @@ function Phone({ src, alt, url, bar, className }: { src: string; alt: string; ur
 
 // Floating bubbles around the phones: positions (in % of the phone area), size and tint.
 const bubbles = [
-  { pos: "left-[4%] top-[2%] lg:left-[-2%] lg:top-[4%]", size: "w-16 h-16 lg:w-24 lg:h-24", ring: "bg-emerald-200/15", delay: 0.9, float: 5 },
-  { pos: "left-[-1%] top-[42%] lg:left-[-4%] lg:top-[40%]", size: "w-14 h-14 lg:w-20 lg:h-20", ring: "bg-amber-200/15", delay: 1.05, float: 6 },
-  { pos: "left-[6%] bottom-[0%] lg:left-[0%] lg:bottom-[2%]", size: "w-16 h-16 lg:w-24 lg:h-24", ring: "bg-rose-200/15", delay: 1.2, float: 7 },
-  { pos: "right-[0%] top-[10%] lg:right-[-3%] lg:top-[14%]", size: "w-16 h-16 lg:w-24 lg:h-24", ring: "bg-sky-200/15", delay: 1.35, float: 5.5 },
+  { pos: "left-[2%] top-[6%]", size: "w-[17cqw]", ring: "bg-emerald-200/15", delay: 0.9, float: 5 },
+  { pos: "left-[-3%] top-[42%]", size: "w-[14cqw]", ring: "bg-amber-200/15", delay: 1.05, float: 6 },
+  { pos: "left-[4%] top-[80%]", size: "w-[17cqw]", ring: "bg-rose-200/15", delay: 1.2, float: 7 },
+  { pos: "right-[-2%] top-[16%]", size: "w-[17cqw]", ring: "bg-sky-200/15", delay: 1.35, float: 5.5 },
 ]
 
 function Bubble({
@@ -61,12 +61,12 @@ function Bubble({
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, delay, ease }}
-      className={cn("absolute z-20", className)}
+      className={cn("absolute z-20 aspect-square", className)}
     >
       <motion.div
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: float, repeat: Infinity, ease: "easeInOut" }}
-        className={cn("w-full h-full rounded-full p-1.5 backdrop-blur-sm shadow-[0_18px_40px_-16px_rgb(0_0_0/0.8)]", ring)}
+        className={cn("w-full h-full rounded-full p-[1.1cqw] backdrop-blur-sm shadow-[0_18px_40px_-16px_rgb(0_0_0/0.8)]", ring)}
       >
         <div className="w-full h-full rounded-full overflow-hidden bg-white ring-1 ring-white/10 flex items-center justify-center">
           {children}
@@ -160,7 +160,10 @@ export function Hero() {
         </div>
 
         {/* Client sites on phones */}
-        <div className="relative h-[400px] sm:h-[540px] lg:h-[600px]" aria-label={t.hero.previews}>
+        <div
+          className="@container relative mx-auto w-full max-w-[360px] sm:max-w-[460px] lg:max-w-[540px] aspect-[1/1.12]"
+          aria-label={t.hero.previews}
+        >
           {/* Warm light behind the phones so they stand out from the dark page */}
           <div
             aria-hidden="true"
@@ -169,10 +172,10 @@ export function Hero() {
           />
           <motion.div
             style={{ transformPerspective: 1200 }}
-            initial={{ opacity: 0, y: 60, rotate: -18, rotateY: 24, rotateX: 8 }}
-            animate={{ opacity: 1, y: 0, rotate: -12, rotateY: 16, rotateX: 6 }}
+            initial={{ opacity: 0, y: 60, rotate: -14, rotateY: 14 }}
+            animate={{ opacity: 1, y: 0, rotate: -9, rotateY: 8, rotateX: 3 }}
             transition={{ duration: 1, delay: 0.2, ease }}
-            className="absolute left-1/2 top-[9%] -translate-x-[86%] z-10"
+            className="absolute left-[8%] top-[8%] z-10"
           >
             <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
               <Phone {...phones[0]} />
@@ -181,10 +184,10 @@ export function Hero() {
 
           <motion.div
             style={{ transformPerspective: 1200 }}
-            initial={{ opacity: 0, y: 60, rotate: 16, rotateY: -22 }}
-            animate={{ opacity: 1, y: 0, rotate: 10, rotateY: -14, rotateX: 4 }}
+            initial={{ opacity: 0, y: 60, rotate: 14, rotateY: -14 }}
+            animate={{ opacity: 1, y: 0, rotate: 8, rotateY: -8, rotateX: 3 }}
             transition={{ duration: 1, delay: 0.35, ease }}
-            className="absolute left-1/2 top-0 -translate-x-[8%]"
+            className="absolute left-[46%] top-[1%]"
           >
             <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
               <Phone {...phones[1]} />
@@ -197,7 +200,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1, rotate: -5 }}
             transition={{ duration: 0.6, delay: 1, ease }}
             whileHover={{ rotate: 0, scale: 1.05 }}
-            className="absolute z-20 right-[4%] sm:right-[8%] lg:right-0 bottom-[2%] sm:bottom-[10%] px-5 py-2.5 rounded-xl bg-ember text-white font-accent text-2xl sm:text-3xl lg:text-4xl shadow-[0_18px_40px_-14px_rgb(255_89_14/0.7)]"
+            className="absolute z-20 right-[0%] top-[78%] px-[4cqw] py-[1.8cqw] rounded-[2.4cqw] bg-ember text-white font-accent text-[6.5cqw] leading-tight whitespace-nowrap shadow-[0_18px_40px_-14px_rgb(255_89_14/0.7)]"
           >
             {t.hero.sticker}
           </motion.a>
@@ -209,7 +212,7 @@ export function Hero() {
             </Bubble>
           ))}
           <Bubble
-            className="hidden sm:block left-[30%] top-[-4%] lg:left-[22%] lg:top-[-2%] w-12 h-12 lg:w-14 lg:h-14"
+            className="left-[34%] top-[-2%] w-[11cqw]"
             ring="bg-ember/20"
             delay={1.5}
             float={6.5}
