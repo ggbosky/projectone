@@ -20,13 +20,13 @@ function Phone({ src, alt, url, bar, className }: { src: string; alt: string; ur
       target="_blank"
       rel="noopener"
       className={cn(
-        "block w-[47cqw] aspect-[9/19.2] rounded-[7.5cqw] bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-600 p-[2px] shadow-[0_50px_90px_-30px_rgb(0_0_0/0.9),0_0_60px_-10px_oklch(0.7_0.2_40/0.35)]",
+        "relative block w-[47cqw] aspect-[9/19.2] rounded-[7.5cqw] bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-600 shadow-[0_50px_90px_-30px_rgb(0_0_0/0.9),0_0_60px_-10px_oklch(0.7_0.2_40/0.35)]",
         className,
       )}
     >
-      <div className="w-full h-full rounded-[calc(7.5cqw-2px)] bg-zinc-950 p-[1.7cqw]">
+      <div className="absolute inset-[2px] rounded-[calc(7.5cqw-2px)] bg-zinc-950">
       {/* Screen: status-bar strip in the site's own colour, then the site itself */}
-      <div className="relative w-full h-full rounded-[5.9cqw] overflow-hidden" style={{ background: bar }}>
+      <div className="absolute inset-[1.7cqw] rounded-[5.9cqw] overflow-hidden" style={{ background: bar }}>
         <img src={src} alt={alt} className="absolute inset-x-0 bottom-0 top-[7%] w-full h-[93%] object-cover object-top" />
         <span className="absolute top-[1.6%] left-1/2 -translate-x-1/2 w-[32%] h-[3.2%] rounded-full bg-zinc-900" />
       </div>
@@ -66,9 +66,9 @@ function Bubble({
       <motion.div
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: float, repeat: Infinity, ease: "easeInOut" }}
-        className={cn("w-full h-full rounded-full p-[1.1cqw] backdrop-blur-sm shadow-[0_18px_40px_-16px_rgb(0_0_0/0.8)]", ring)}
+        className={cn("relative w-full aspect-square rounded-full backdrop-blur-sm shadow-[0_18px_40px_-16px_rgb(0_0_0/0.8)]", ring)}
       >
-        <div className="w-full h-full rounded-full overflow-hidden bg-white ring-1 ring-white/10 flex items-center justify-center">
+        <div className="absolute inset-[1.1cqw] rounded-full overflow-hidden bg-white ring-1 ring-white/10 flex items-center justify-center">
           {children}
         </div>
       </motion.div>
@@ -171,9 +171,8 @@ export function Hero() {
             style={{ background: "radial-gradient(closest-side, oklch(0.7 0.2 40 / 0.45), oklch(0.7 0.2 40 / 0.12) 60%, transparent)" }}
           />
           <motion.div
-            style={{ transformPerspective: 1200 }}
-            initial={{ opacity: 0, y: 60, rotate: -14, rotateY: 14 }}
-            animate={{ opacity: 1, y: 0, rotate: -9, rotateY: 8, rotateX: 3 }}
+            initial={{ opacity: 0, y: 60, rotate: -14 }}
+            animate={{ opacity: 1, y: 0, rotate: -9 }}
             transition={{ duration: 1, delay: 0.2, ease }}
             className="absolute left-[8%] top-[8%] z-10"
           >
@@ -183,9 +182,8 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            style={{ transformPerspective: 1200 }}
-            initial={{ opacity: 0, y: 60, rotate: 14, rotateY: -14 }}
-            animate={{ opacity: 1, y: 0, rotate: 8, rotateY: -8, rotateX: 3 }}
+            initial={{ opacity: 0, y: 60, rotate: 14 }}
+            animate={{ opacity: 1, y: 0, rotate: 8 }}
             transition={{ duration: 1, delay: 0.35, ease }}
             className="absolute left-[46%] top-[1%]"
           >
