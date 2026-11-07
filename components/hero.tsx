@@ -9,27 +9,60 @@ import { LogoMark } from "@/components/logo"
 const ease = [0.22, 1, 0.36, 1] as const
 
 const phones = [
-  { src: "/hero/finelia-mobile.jpg", alt: "finelia.cz", url: "https://finelia.cz/", bar: "#fbefe9" },
-  { src: "/hero/drexler-mobile.jpg", alt: "drexler.digital", url: "https://www.drexler.digital/", bar: "#a90a04" },
+  { src: "/hero/finelia-mobile.jpg", alt: "finelia.cz", url: "https://finelia.cz/", bar: "#fbefe9", ink: "#111" },
+  { src: "/hero/drexler-mobile.jpg", alt: "drexler.digital", url: "https://www.drexler.digital/", bar: "#a90a04", ink: "#fff" },
 ]
 
-function Phone({ src, alt, url, bar, className }: { src: string; alt: string; url: string; bar: string; className?: string }) {
+// iPhone 15 Pro, natural titanium. Everything is sized in container units (cqw of the hero stage),
+// so the device keeps its real proportions (71.6 × 146.6 mm) at every screen size.
+function Phone({ src, alt, url, bar, ink, className }: { src: string; alt: string; url: string; bar: string; ink: string; className?: string }) {
+  const button = "absolute w-[0.7cqw] rounded-[0.4cqw] bg-gradient-to-r from-[#8d8a84] to-[#5d5a55]"
   return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener"
-      className={cn(
-        "relative block w-[47cqw] aspect-[9/19.2] rounded-[7.5cqw] bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-600 shadow-[0_50px_90px_-30px_rgb(0_0_0/0.9),0_0_60px_-10px_oklch(0.7_0.2_40/0.35)]",
-        className,
-      )}
-    >
-      <div className="absolute inset-[2px] rounded-[calc(7.5cqw-2px)] bg-zinc-950">
-      {/* Screen: status-bar strip in the site's own colour, then the site itself */}
-      <div className="absolute inset-[1.7cqw] rounded-[5.9cqw] overflow-hidden" style={{ background: bar }}>
-        <img src={src} alt={alt} className="absolute inset-x-0 bottom-0 top-[7%] w-full h-[93%] object-cover object-top" />
-        <span className="absolute top-[1.6%] left-1/2 -translate-x-1/2 w-[32%] h-[3.2%] rounded-full bg-zinc-900" />
-      </div>
+    <a href={url} target="_blank" rel="noopener" className={cn("relative block w-[46cqw] aspect-[71.6/146.6]", className)}>
+      {/* Side buttons: action + volume on the left, power on the right */}
+      <span className={cn(button, "left-[-0.5cqw] top-[17%] h-[4.5%]")} />
+      <span className={cn(button, "left-[-0.5cqw] top-[25%] h-[8%]")} />
+      <span className={cn(button, "left-[-0.5cqw] top-[35%] h-[8%]")} />
+      <span className={cn(button, "right-[-0.5cqw] top-[28%] h-[12%]")} />
+
+      {/* Titanium frame */}
+      <div
+        className="absolute inset-0 rounded-[8.4cqw] shadow-[0_50px_90px_-30px_rgb(0_0_0/0.9),0_0_60px_-10px_oklch(0.7_0.2_40/0.35)]"
+        style={{ background: "linear-gradient(135deg, #d6d2cb 0%, #8f8b85 22%, #bdb8b0 50%, #77746f 78%, #c9c5be 100%)" }}
+      />
+      <div className="absolute inset-[0.45cqw] rounded-[8cqw] bg-[#3a3835]" />
+
+      {/* Black bezel + screen */}
+      <div className="absolute inset-[0.8cqw] rounded-[7.7cqw] bg-black">
+        <div className="absolute inset-[1.6cqw] rounded-[6.2cqw] overflow-hidden" style={{ background: bar }}>
+          <img src={src} alt={alt} className="absolute inset-x-0 bottom-0 top-[6.5%] w-full h-[93.5%] object-cover object-top" />
+
+          {/* Status bar */}
+          <div className="absolute inset-x-0 top-0 h-[6.5%] flex items-center justify-between px-[7%] text-[3.1cqw] font-semibold" style={{ color: ink }}>
+            <span className="tabular-nums">9:41</span>
+            <span className="flex items-center gap-[1cqw]" aria-hidden="true">
+              <svg viewBox="0 0 18 12" className="h-[2.4cqw]" fill="currentColor">
+                <rect x="0" y="8" width="3" height="4" rx="1" />
+                <rect x="5" y="5.5" width="3" height="6.5" rx="1" />
+                <rect x="10" y="3" width="3" height="9" rx="1" />
+                <rect x="15" y="0" width="3" height="12" rx="1" />
+              </svg>
+              <svg viewBox="0 0 16 12" className="h-[2.4cqw]" fill="currentColor">
+                <path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.7 8.7 0 0 1 6-2.4Zm0 3.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 4.1 6.8 6.8 0 0 0 3.3 5.9l1.3 1.4C5.5 6.5 6.7 6 8 6Zm0 3.8c.5 0 .9.2 1.2.5L8 11.6l-1.2-1.3c.3-.3.7-.5 1.2-.5Z" />
+              </svg>
+              <svg viewBox="0 0 27 13" className="h-[2.5cqw]">
+                <rect x="0.5" y="0.5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" strokeOpacity="0.45" />
+                <rect x="2.5" y="2.5" width="19" height="8" rx="2" fill="currentColor" />
+                <path d="M25 4.5v4c.8-.3 1.5-1.1 1.5-2s-.7-1.7-1.5-2Z" fill="currentColor" fillOpacity="0.45" />
+              </svg>
+            </span>
+          </div>
+
+          {/* Dynamic Island */}
+          <span className="absolute top-[1.5%] left-1/2 -translate-x-1/2 w-[31%] h-[3.6%] rounded-full bg-black" />
+          {/* Glass reflection */}
+          <span className="absolute inset-0 bg-[linear-gradient(115deg,rgb(255_255_255/0.14)_0%,transparent_32%)] pointer-events-none" />
+        </div>
       </div>
     </a>
   )
