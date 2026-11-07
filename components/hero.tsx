@@ -75,15 +75,14 @@ function Bubble({
       transition={{ duration: 0.6, delay, ease }}
       className={cn("absolute z-20 aspect-square", className)}
     >
-      <motion.div
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: float, repeat: Infinity, ease: "easeInOut" }}
-        className={cn("relative w-full aspect-square rounded-full backdrop-blur-sm shadow-[0_18px_40px_-16px_rgb(0_0_0/0.8)]", ring)}
+      <div
+        className={cn("float relative w-full aspect-square rounded-full shadow-[0_18px_40px_-16px_rgb(0_0_0/0.8)]", ring)}
+        style={{ animationDuration: `${float}s` }}
       >
         <div className="absolute inset-[1.1cqw] rounded-full overflow-hidden bg-white ring-1 ring-white/10 flex items-center justify-center">
           {children}
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   )
 }
@@ -98,8 +97,8 @@ export function Hero() {
     >
       {/* Ember light from above, like the rest of the site */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[1100px] h-[620px] rounded-full bg-ember/[0.16] blur-[140px]" />
-        <div className="absolute right-[-12rem] top-40 w-[36rem] h-[30rem] rounded-full bg-ember/[0.10] blur-[130px]" />
+        <div className="absolute -top-72 left-1/2 -translate-x-1/2 w-[1500px] h-[900px] bg-[radial-gradient(closest-side,oklch(0.7_0.2_40/0.16),transparent)]" />
+        <div className="absolute right-[-18rem] top-20 w-[50rem] h-[44rem] bg-[radial-gradient(closest-side,oklch(0.7_0.2_40/0.10),transparent)]" />
       </div>
 
       <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-16 lg:gap-6 items-center">
@@ -179,7 +178,7 @@ export function Hero() {
           {/* Warm light behind the phones so they stand out from the dark page */}
           <div
             aria-hidden="true"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[90%] rounded-full pointer-events-none blur-[60px]"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[100%] pointer-events-none"
             style={{ background: "radial-gradient(closest-side, oklch(0.7 0.2 40 / 0.45), oklch(0.7 0.2 40 / 0.12) 60%, transparent)" }}
           />
           <motion.div
@@ -188,9 +187,9 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.2, ease }}
             className="absolute left-[8%] top-[8%] z-10"
           >
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+            <div className="float" style={{ animationDuration: "6s" }}>
               <Phone {...phones[0]} />
-            </motion.div>
+            </div>
           </motion.div>
 
           <motion.div
@@ -199,9 +198,9 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.35, ease }}
             className="absolute left-[46%] top-[1%]"
           >
-            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+            <div className="float" style={{ animationDuration: "7s", animationDelay: "-3.5s" }}>
               <Phone {...phones[1]} />
-            </motion.div>
+            </div>
           </motion.div>
 
 
