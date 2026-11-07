@@ -20,14 +20,16 @@ function Phone({ src, alt, url, bar, className }: { src: string; alt: string; ur
       target="_blank"
       rel="noopener"
       className={cn(
-        "block w-[168px] sm:w-[230px] lg:w-[270px] aspect-[9/19.2] rounded-[2rem] sm:rounded-[2.6rem] bg-zinc-900 p-[7px] sm:p-[9px] shadow-[0_40px_80px_-30px_rgb(0_0_0/0.8),0_0_0_1px_rgb(255_255_255/0.08)]",
+        "block w-[168px] sm:w-[230px] lg:w-[270px] aspect-[9/19.2] rounded-[2rem] sm:rounded-[2.6rem] bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-600 p-[2px] shadow-[0_50px_90px_-30px_rgb(0_0_0/0.9),0_0_60px_-10px_oklch(0.7_0.2_40/0.35)]",
         className,
       )}
     >
+      <div className="w-full h-full rounded-[calc(2rem-2px)] sm:rounded-[calc(2.6rem-2px)] bg-zinc-950 p-[6px] sm:p-[8px]">
       {/* Screen: status-bar strip in the site's own colour, then the site itself */}
       <div className="relative w-full h-full rounded-[1.6rem] sm:rounded-[2.05rem] overflow-hidden" style={{ background: bar }}>
         <img src={src} alt={alt} className="absolute inset-x-0 bottom-0 top-[7%] w-full h-[93%] object-cover object-top" />
         <span className="absolute top-[1.6%] left-1/2 -translate-x-1/2 w-[32%] h-[3.2%] rounded-full bg-zinc-900" />
+      </div>
       </div>
     </a>
   )
@@ -159,6 +161,12 @@ export function Hero() {
 
         {/* Client sites on phones */}
         <div className="relative h-[400px] sm:h-[540px] lg:h-[600px]" aria-label={t.hero.previews}>
+          {/* Warm light behind the phones so they stand out from the dark page */}
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[90%] rounded-full pointer-events-none blur-[60px]"
+            style={{ background: "radial-gradient(closest-side, oklch(0.7 0.2 40 / 0.45), oklch(0.7 0.2 40 / 0.12) 60%, transparent)" }}
+          />
           <motion.div
             initial={{ opacity: 0, y: 60, rotate: -14 }}
             animate={{ opacity: 1, y: 0, rotate: -9 }}
