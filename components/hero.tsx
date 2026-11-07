@@ -19,7 +19,7 @@ function Phone({ src, alt, url, bar, className }: { src: string; alt: string; ur
       target="_blank"
       rel="noopener"
       className={cn(
-        "block w-[168px] sm:w-[230px] lg:w-[270px] aspect-[9/19.2] rounded-[2rem] sm:rounded-[2.6rem] bg-zinc-900 p-[7px] sm:p-[9px] shadow-[0_40px_80px_-30px_rgb(60_30_10/0.45),0_0_0_1px_rgb(0_0_0/0.08)]",
+        "block w-[168px] sm:w-[230px] lg:w-[270px] aspect-[9/19.2] rounded-[2rem] sm:rounded-[2.6rem] bg-zinc-900 p-[7px] sm:p-[9px] shadow-[0_40px_80px_-30px_rgb(0_0_0/0.8),0_0_0_1px_rgb(255_255_255/0.08)]",
         className,
       )}
     >
@@ -38,23 +38,13 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-[#f7f1e9] text-zinc-900 px-4 pt-32 sm:pt-36 pb-48 lg:pb-60"
+      className="relative overflow-hidden bg-zinc-950 text-white px-4 pt-32 sm:pt-36 pb-20 lg:pb-28"
     >
-      {/* Soft, warm light */}
+      {/* Ember light from above, like the rest of the site */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -left-40 bottom-[-12rem] w-[42rem] h-[32rem] rounded-full bg-[#ffd877]/50 blur-[110px]" />
-        <div className="absolute right-[-10rem] top-10 w-[40rem] h-[34rem] rounded-full bg-[#ffc7a6]/50 blur-[120px]" />
-        <div className="absolute left-[10%] -top-40 w-[30rem] h-[24rem] rounded-full bg-[#dbeee2]/70 blur-[100px]" />
+        <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[1100px] h-[620px] rounded-full bg-ember/[0.16] blur-[140px]" />
+        <div className="absolute right-[-12rem] top-40 w-[36rem] h-[30rem] rounded-full bg-ember/[0.10] blur-[130px]" />
       </div>
-      {/* Long, eased fade from the warm hero into the dark page */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-72 lg:h-96 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgb(9 9 11 / 0) 0%, rgb(9 9 11 / 0.08) 18%, rgb(9 9 11 / 0.28) 38%, rgb(9 9 11 / 0.58) 60%, rgb(9 9 11 / 0.86) 80%, rgb(9 9 11) 100%)",
-        }}
-      />
 
       <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-16 lg:gap-6 items-center">
         {/* Copy */}
@@ -104,7 +94,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease }}
-            className="mt-9 text-lg sm:text-xl text-zinc-600 max-w-md mx-auto leading-relaxed text-balance"
+            className="mt-9 text-lg sm:text-xl text-zinc-400 max-w-md mx-auto leading-relaxed text-balance"
           >
             {t.hero.sub}
           </motion.p>
@@ -117,7 +107,7 @@ export function Hero() {
           >
             <a
               href="#kontakt"
-              className="group inline-flex items-center gap-2 h-14 px-8 rounded-full bg-zinc-900 text-white font-semibold shadow-[0_14px_30px_-12px_rgb(0_0_0/0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember"
+              className="group inline-flex items-center gap-2 h-14 px-8 rounded-full bg-white text-zinc-950 font-semibold shadow-lg shadow-white/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-ember hover:shadow-[0_12px_40px_-12px_oklch(0.7_0.2_40/0.8)]"
             >
               {t.hero.primary}
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
