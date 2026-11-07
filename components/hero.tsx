@@ -225,16 +225,6 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          <motion.a
-            href="#kontakt"
-            initial={{ opacity: 0, scale: 0.6, rotate: -12 }}
-            animate={{ opacity: 1, scale: 1, rotate: -5 }}
-            transition={{ duration: 0.6, delay: 1, ease }}
-            whileHover={{ rotate: 0, scale: 1.05 }}
-            className="absolute z-20 right-[0%] top-[78%] px-[4cqw] py-[1.8cqw] rounded-[2.4cqw] bg-ember text-white font-accent text-[6.5cqw] leading-tight whitespace-nowrap shadow-[0_18px_40px_-14px_rgb(255_89_14/0.7)]"
-          >
-            {t.hero.sticker}
-          </motion.a>
 
           {/* Client faces and logos */}
           {t.reviews.items.map((r, i) => (

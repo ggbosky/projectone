@@ -23,7 +23,6 @@ const cs = {
     accent: "osobně",
     sub: "Žádná agentura. Píšete přímo tomu, kdo na webu dělá. Za dva až tři týdny je venku.",
     primary: "Napsat nám",
-    sticker: "Napište nám!",
     previews: "Ukázky webů našich klientů",
   },
   services: {
@@ -383,7 +382,6 @@ const en: Dictionary = {
     accent: "personally",
     sub: "No agency. You talk directly to whoever is working on your site. Live in two to three weeks.",
     primary: "Write to us",
-    sticker: "Write to us!",
     previews: "Websites we built for our clients",
   },
   services: {
