@@ -168,10 +168,11 @@ export function Hero() {
             style={{ background: "radial-gradient(closest-side, oklch(0.7 0.2 40 / 0.45), oklch(0.7 0.2 40 / 0.12) 60%, transparent)" }}
           />
           <motion.div
-            initial={{ opacity: 0, y: 60, rotate: -14 }}
-            animate={{ opacity: 1, y: 0, rotate: -9 }}
+            style={{ transformPerspective: 1200 }}
+            initial={{ opacity: 0, y: 60, rotate: -18, rotateY: 24, rotateX: 8 }}
+            animate={{ opacity: 1, y: 0, rotate: -12, rotateY: 16, rotateX: 6 }}
             transition={{ duration: 1, delay: 0.2, ease }}
-            className="absolute left-1/2 top-[6%] -translate-x-[88%] z-10"
+            className="absolute left-1/2 top-[9%] -translate-x-[86%] z-10"
           >
             <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
               <Phone {...phones[0]} />
@@ -179,8 +180,9 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 60, rotate: 14 }}
-            animate={{ opacity: 1, y: 0, rotate: 8 }}
+            style={{ transformPerspective: 1200 }}
+            initial={{ opacity: 0, y: 60, rotate: 16, rotateY: -22 }}
+            animate={{ opacity: 1, y: 0, rotate: 10, rotateY: -14, rotateX: 4 }}
             transition={{ duration: 1, delay: 0.35, ease }}
             className="absolute left-1/2 top-0 -translate-x-[8%]"
           >
