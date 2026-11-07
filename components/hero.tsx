@@ -38,7 +38,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-[#f7f1e9] text-zinc-900 rounded-b-[2.5rem] sm:rounded-b-[3.5rem] px-4 pt-32 sm:pt-36 pb-20 lg:pb-24"
+      className="relative overflow-hidden bg-[#f7f1e9] text-zinc-900 px-4 pt-32 sm:pt-36 pb-48 lg:pb-60"
     >
       {/* Soft, warm light */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -46,6 +46,15 @@ export function Hero() {
         <div className="absolute right-[-10rem] top-10 w-[40rem] h-[34rem] rounded-full bg-[#ffc7a6]/50 blur-[120px]" />
         <div className="absolute left-[10%] -top-40 w-[30rem] h-[24rem] rounded-full bg-[#dbeee2]/70 blur-[100px]" />
       </div>
+      {/* Long, eased fade from the warm hero into the dark page */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-72 lg:h-96 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgb(9 9 11 / 0) 0%, rgb(9 9 11 / 0.08) 18%, rgb(9 9 11 / 0.28) 38%, rgb(9 9 11 / 0.58) 60%, rgb(9 9 11 / 0.86) 80%, rgb(9 9 11) 100%)",
+        }}
+      />
 
       <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-16 lg:gap-6 items-center">
         {/* Copy */}
