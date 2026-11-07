@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { useI18n } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
+import { LogoMark } from "@/components/logo"
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -29,6 +30,47 @@ function Phone({ src, alt, url, bar, className }: { src: string; alt: string; ur
         <span className="absolute top-[1.6%] left-1/2 -translate-x-1/2 w-[32%] h-[3.2%] rounded-full bg-zinc-900" />
       </div>
     </a>
+  )
+}
+
+// Floating bubbles around the phones: positions (in % of the phone area), size and tint.
+const bubbles = [
+  { pos: "left-[4%] top-[2%] lg:left-[-2%] lg:top-[4%]", size: "w-16 h-16 lg:w-24 lg:h-24", ring: "bg-emerald-200/15", delay: 0.9, float: 5 },
+  { pos: "left-[-1%] top-[42%] lg:left-[-4%] lg:top-[40%]", size: "w-14 h-14 lg:w-20 lg:h-20", ring: "bg-amber-200/15", delay: 1.05, float: 6 },
+  { pos: "left-[6%] bottom-[0%] lg:left-[0%] lg:bottom-[2%]", size: "w-16 h-16 lg:w-24 lg:h-24", ring: "bg-rose-200/15", delay: 1.2, float: 7 },
+  { pos: "right-[0%] top-[10%] lg:right-[-3%] lg:top-[14%]", size: "w-16 h-16 lg:w-24 lg:h-24", ring: "bg-sky-200/15", delay: 1.35, float: 5.5 },
+]
+
+function Bubble({
+  className,
+  ring,
+  delay,
+  float,
+  children,
+}: {
+  className: string
+  ring: string
+  delay: number
+  float: number
+  children: React.ReactNode
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay, ease }}
+      className={cn("absolute z-20", className)}
+    >
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: float, repeat: Infinity, ease: "easeInOut" }}
+        className={cn("w-full h-full rounded-full p-1.5 backdrop-blur-sm shadow-[0_18px_40px_-16px_rgb(0_0_0/0.8)]", ring)}
+      >
+        <div className="w-full h-full rounded-full overflow-hidden bg-white ring-1 ring-white/10 flex items-center justify-center">
+          {children}
+        </div>
+      </motion.div>
+    </motion.div>
   )
 }
 
@@ -149,6 +191,21 @@ export function Hero() {
           >
             {t.hero.sticker}
           </motion.a>
+
+          {/* Client faces and logos */}
+          {t.reviews.items.map((r, i) => (
+            <Bubble key={r.name} className={cn(bubbles[i].pos, bubbles[i].size)} {...bubbles[i]}>
+              <img src={r.photo} alt={r.name} className="w-full h-full object-cover object-top" />
+            </Bubble>
+          ))}
+          <Bubble
+            className="hidden sm:block left-[30%] top-[-4%] lg:left-[22%] lg:top-[-2%] w-12 h-12 lg:w-14 lg:h-14"
+            ring="bg-ember/20"
+            delay={1.5}
+            float={6.5}
+          >
+            <LogoMark className="h-[45%]" />
+          </Bubble>
         </div>
       </div>
     </section>
